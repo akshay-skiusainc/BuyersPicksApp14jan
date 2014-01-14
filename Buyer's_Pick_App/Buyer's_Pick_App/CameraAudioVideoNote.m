@@ -21,8 +21,16 @@
 @end
 
 @implementation CameraAudioVideoNote
+<<<<<<< HEAD
 @synthesize lView,pView,noteScroller,savedImage,AllNotes,mainActivityIndicator,navTagFromHome,deleteNoteIndex,noteScrollerLand,TAG,VENDORID;
 @synthesize noteScroller,savedImage,AllNotes,mainActivityIndicator,navTagFromHome,deleteNoteIndex,TAG;
+=======
+
+@synthesize noteScroller,savedImage,AllNotes,mainActivityIndicator,navTagFromHome,deleteNoteIndex,TAG,VENDORID;
+
+
+
+>>>>>>> 252138832889e98febfafec6dae0fc066b4d6eb6
 
 //camera
 @synthesize frontCamera,backCamera,cameraTag,cameraButton,device,imageArray,imageCaptureButton,viewForRecording,cameraToggleSwitch,input,thumbTintColor,bgImageForSwitch,switchCameraImage,switchVideoImage;

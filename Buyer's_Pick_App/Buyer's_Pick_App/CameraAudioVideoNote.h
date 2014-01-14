@@ -43,8 +43,14 @@
 @property (nonatomic)NSString* VENDORID;
 
 
+<<<<<<< HEAD
 @property (strong, nonatomic) IBOutlet UIView *pView;
 @property (strong, nonatomic) IBOutlet UIView *lView;
+=======
+//@property (strong, nonatomic) IBOutlet UIView *pView;
+//@property (strong, nonatomic) IBOutlet UIView *lView;
+
+>>>>>>> 252138832889e98febfafec6dae0fc066b4d6eb6
 @property (strong, nonatomic) IBOutlet UIScrollView *noteScroller;
 //@property (strong, nonatomic) IBOutlet UIScrollView *noteScrollerLand;
 @property(strong,nonatomic) NSMutableDictionary *AllNotes;
