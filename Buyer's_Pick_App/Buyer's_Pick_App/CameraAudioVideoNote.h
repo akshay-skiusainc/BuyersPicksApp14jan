@@ -40,14 +40,11 @@
 @property (nonatomic,strong)NSString* TAG;
 @property (nonatomic)int deleteNoteIndex;
 @property (nonatomic)int navTagFromHome;
-<<<<<<< HEAD
 @property (nonatomic)NSString* VENDORID;
 
 
 @property (strong, nonatomic) IBOutlet UIView *pView;
 @property (strong, nonatomic) IBOutlet UIView *lView;
-=======
->>>>>>> 76a6db40a54daadc46c17dbe15e8dfddcadd74c3
 @property (strong, nonatomic) IBOutlet UIScrollView *noteScroller;
 //@property (strong, nonatomic) IBOutlet UIScrollView *noteScrollerLand;
 @property(strong,nonatomic) NSMutableDictionary *AllNotes;
