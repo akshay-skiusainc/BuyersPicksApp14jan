@@ -32,6 +32,7 @@
     NSMutableArray              *Map_Annotaions;
     NSMutableArray *ContactsArray;
     NSString* vendorTitle;
+     NSString* vendorName;
     NSString* vendorDesciption;
     NSString* vendorWebsite;
     DataFwdClass *dataFwdObj;
@@ -48,6 +49,7 @@
 @property (nonatomic,strong)NSString* vendorDesciption;
 @property (nonatomic,strong)NSString* vendorWebsite;
 @property (nonatomic,strong)NSString* vendorid;
+@property (nonatomic,strong)NSString* vendorName;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *contactNoScrollView;
 

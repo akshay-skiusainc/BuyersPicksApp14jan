@@ -53,7 +53,7 @@
 @property (nonatomic,strong)NSString* vendorDesciption;
 @property (nonatomic,strong)NSString* vendorWebsite;
 @property (nonatomic,strong)NSString* vendorid;
-
+@property (nonatomic,strong)NSString* vendorname;
 
 @property (strong, nonatomic) IBOutlet UIButton *listViewLand;
 @property (strong, nonatomic) IBOutlet UIButton *gridViewLand;

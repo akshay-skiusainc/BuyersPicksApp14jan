@@ -103,7 +103,7 @@
 			//const char *sql_stmt = "CREATE TABLE IF NOT EXISTS PROPERTY (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, agentId NUMERIC, ADDRESS TEXT, CITY TEXT)";
 			const char *ba_tbl_user = "CREATE TABLE IF NOT EXISTS ba_tbl_user (id INTEGER PRIMARY KEY AUTOINCREMENT, email VARCHAR, password VARCHAR, f_name VARCHAR,l_name VARCHAR, device VARCHAR, last_login TIMESTAMP, active INTEGER, created_date TIMESTAMP, verification_key VARCHAR, active_date TIMESTAMP, old_password VARCHAR, last_modified TIMESTAMP, created_by VARCHAR, subscribtion_type VARCHAR, user_type VARCHAR, security_pin VARCHAR, password_mod INTEGER)";
 			//const char *LoginTable= "CREATE TABLE IF NOT EXISTS VALIDUSER (agentId NUMERIC,EMAIL TEXT, FIRSTNAME TEXT, LASTNAME TEXT, APIKey TEXT)";
-			const char *ba_tbl_vendor="CREATE TABLE IF NOT EXISTS ba_tbl_vendor (id INTEGER PRIMARY KEY AUTOINCREMENT, vendor_name VARCHAR, user_id VARCHAR, tags TEXT, alias VARCHAR, description TEXT, website VARCHAR, path VARCHAR, created_date TIMESTAMP, security_pin VARCHAR, old_security_pin VARCHAR, last_modified_security_pin TIMESTAMP, geo_latitude VARCHAR, geo_longitude VARCHAR, last_modified_date TIMESTAMP, is_deleted INTEGER, delete_date TIMESTAMP)";
+			const char *ba_tbl_vendor="CREATE TABLE IF NOT EXISTS ba_tbl_vendor (id INTEGER PRIMARY KEY AUTOINCREMENT, vendor_name VARCHAR, user_id VARCHAR, tags TEXT, alias VARCHAR, description TEXT, website VARCHAR, path VARCHAR, created_date TIMESTAMP, security_pin VARCHAR, old_security_pin VARCHAR, last_modified_security_pin TIMESTAMP, geo_latitude VARCHAR, geo_longitude VARCHAR, last_modified_date TIMESTAMP, is_deleted INTEGER, delete_date TIMESTAMP, vendor_title VARCHAR)";
             
             
              const char *ba_tbl_user_type_master="CREATE TABLE IF NOT EXISTS ba_tbl_user_type_master(id INTEGER PRIMARY KEY AUTOINCREMENT, user_type VARCHAR,created_date TIMESTAMP, is_deleted INTEGER, last_modified Timestamp)";
@@ -286,7 +286,54 @@
 	
 }
 
-
+-(void)displayAllVendorsInDB:(NSString*)qSQL
+{
+    const char *dbpath = [databasePath UTF8String];
+	sqlite3_stmt   *statement;
+	int i=0;
+	if (sqlite3_open(dbpath, &contactDB)== SQLITE_OK)
+	{
+		const char *q_stmt =[qSQL UTF8String];
+		if (sqlite3_prepare_v2(contactDB, q_stmt, -1, &statement, NULL)==SQLITE_OK) {
+			
+			while (sqlite3_step(statement)==SQLITE_ROW) {
+                
+                NSString *Field0 =[[NSString alloc] initWithUTF8String:(const char*)sqlite3_column_text(statement, 0) ];
+                
+				NSString *Field1 =[[NSString alloc] initWithUTF8String:(const char*)sqlite3_column_text(statement, 1) ];
+                NSString *Field2 =[[NSString alloc] initWithUTF8String:(const char*)sqlite3_column_text(statement, 2) ];
+                NSString *Field3 =[[NSString alloc] initWithUTF8String:(const char*)sqlite3_column_text(statement, 3) ];
+                NSString *Field4 =[[NSString alloc] initWithUTF8String:(const char*)sqlite3_column_text(statement, 4) ];
+                
+                
+                dataid[i] = [NSString stringWithFormat:@"%@",Field0];
+                
+                datapath[i] = [NSString stringWithFormat:@"%@",Field1];
+                datatype[i] = [NSString stringWithFormat:@"%@",Field2];
+                datatitle[i] = [NSString stringWithFormat:@"%@",Field3];
+                datadate[i] = [NSString stringWithFormat:@"%@",Field4];
+                
+                //  ProfilePic = [[NSString stringWithFormat:@"%@",Field2] retain];
+                
+                
+                NSLog(@"dataid=%@",dataid[i]);
+                
+                NSLog(@"datapath=%@",datapath[i]);
+                
+                NSLog(@"datatype=%@",datatype[i]);
+                
+                i++;
+			}
+            
+            TotalData=i;
+            NSLog(@"TotalData=%d",TotalData);
+            
+			sqlite3_finalize(statement);
+		}
+		sqlite3_close(contactDB);
+	}
+	
+}
 -(void)displayContentData:(NSString*)qSQL
 {
     const char *dbpath = [databasePath UTF8String];
@@ -309,7 +356,6 @@
 
                 datapath[i] = [NSString stringWithFormat:@"%@",Field1];
                 datatype[i] = [NSString stringWithFormat:@"%@",Field2];
-
                 //  ProfilePic = [[NSString stringWithFormat:@"%@",Field2] retain];
                 
                 

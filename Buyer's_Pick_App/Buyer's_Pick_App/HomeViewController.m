@@ -144,7 +144,13 @@
     titleLabel.textColor = [UIColor whiteColor];
     self.navigationItem.titleView = titleLabel;
     
-
+    tableViewBgImageLand.layer.cornerRadius = 10.0;
+    tableViewBgImageLand.clipsToBounds = YES;
+    tableViewBgImage.layer.cornerRadius = 10.0;
+    tableViewBgImage.clipsToBounds = YES;
+    
+    [tableViewBgImage.layer setBorderColor:[UIColor darkGrayColor].CGColor];
+    [tableViewBgImage.layer setBorderWidth:0.5];
    }
 
 -(void)openLeftView:(UIButton *)sender
@@ -159,7 +165,8 @@
     
     [super viewWillAppear:YES];
     [[UINavigationBar appearance]setBackgroundImage:[UIImage imageNamed:@"topnavigation.jpg"] forBarMetrics:UIBarMetricsDefault];
-    
+    [self performSelector:@selector(offEditModeBtn:) withObject:nil afterDelay:0.0];
+
     NSString   *fetchdata = [NSString stringWithFormat:@"select id , vendor_name, Description from ba_tbl_vendor"];
     [self displayContentData:fetchdata];
     
@@ -208,8 +215,8 @@
     [[vendorScroller subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [[vendorScrollerLand subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
 
-    NSString   *fetchdata = [NSString stringWithFormat:@"select id , vendor_name, Description from ba_tbl_vendor"];
-    [self displayContentData:fetchdata];
+    NSString   *fetchdata = [NSString stringWithFormat:@"select id , vendor_name, Description, vendor_title, created_date from ba_tbl_vendor"];
+    [self displayAllVendorsInDB:fetchdata];
     
     int m = 0;
     int nXX = 0;
@@ -252,7 +259,7 @@
             tickmarkButtonGrid[i].userInteractionEnabled = NO;
             tickmarkButtonGrid[i].alpha = 0.0;
             tickmarkButtonGrid[i].tag = i;
-            [tickmarkButtonGrid[i] setBackgroundImage:[UIImage imageNamed:@" "] forState:UIControlStateNormal];
+            [tickmarkButtonGrid[i] setBackgroundImage:nil forState:UIControlStateNormal];
             [vendorImage[i] addSubview:tickmarkButtonGrid[i]];
             
             
@@ -281,7 +288,7 @@
             tickmarkButtonGridLand[i].userInteractionEnabled = NO;
             tickmarkButtonGridLand[i].alpha = 0.0;
             tickmarkButtonGridLand[i].tag = i;
-            [tickmarkButtonGridLand[i] setBackgroundImage:[UIImage imageNamed:@" "] forState:UIControlStateNormal];
+            [tickmarkButtonGridLand[i] setBackgroundImage:nil forState:UIControlStateNormal];
             [vendorImageLand[i] addSubview:tickmarkButtonGridLand[i]];
             
             
@@ -334,13 +341,30 @@
             imageOnVendorList[i].image = [UIImage imageWithContentsOfFile:datapath[i]];
             [vendorImage[i] addSubview:imageOnVendorList[i]];
             
-            vendorName[i] = [[UILabel alloc]initWithFrame:CGRectMake(130, 35, 200, 20)];
+            vendorTitle[i] = [[UILabel alloc]initWithFrame:CGRectMake(130, 35, 200, 20)];
+            vendorTitle[i].backgroundColor = [UIColor clearColor];
+            vendorTitle[i].text = datatitle[i];
+            vendorTitle[i].font = [UIFont fontWithName:@"Helvetica Neue" size: 30.0];
+            vendorTitle[i].font = [UIFont boldSystemFontOfSize:15.0];
+            vendorTitle[i].textColor = [UIColor darkGrayColor];
+            [viewForList[i] addSubview:vendorTitle[i]];
+            
+            vendorName[i] = [[UILabel alloc]initWithFrame:CGRectMake(330, 35, 200, 20)];
             vendorName[i].backgroundColor = [UIColor clearColor];
             vendorName[i].text = datapath[i];
             vendorName[i].font = [UIFont fontWithName:@"Helvetica Neue" size: 30.0];
             vendorName[i].font = [UIFont boldSystemFontOfSize:15.0];
-            vendorName[i].textColor = [UIColor darkGrayColor];
+            vendorName[i].textColor = [UIColor grayColor];
             [viewForList[i] addSubview:vendorName[i]];
+            
+            vendorDate[i] = [[UILabel alloc]initWithFrame:CGRectMake(530, 35, 200, 20)];
+            vendorDate[i].backgroundColor = [UIColor clearColor];
+            vendorDate[i].text = datadate[i];
+            vendorDate[i].font = [UIFont fontWithName:@"Helvetica Neue" size: 30.0];
+            vendorDate[i].font = [UIFont boldSystemFontOfSize:13.0];
+            vendorDate[i].textColor = [UIColor grayColor];
+            [viewForList[i] addSubview:vendorDate[i]];
+
             
             vendorDetails[i] = [[UILabel alloc]initWithFrame:CGRectMake(130, 60, 200, 30)];
             vendorDetails[i].backgroundColor = [UIColor clearColor];
@@ -364,7 +388,7 @@
             tickmarkButtonlist[i].userInteractionEnabled = NO;
             tickmarkButtonlist[i].alpha = 0.0;
             tickmarkButtonlist[i].tag = i;
-            [tickmarkButtonlist[i] setBackgroundImage:[UIImage imageNamed:@" "] forState:UIControlStateNormal];
+            [tickmarkButtonlist[i] setBackgroundImage:nil forState:UIControlStateNormal];
             [viewForList[i] addSubview:tickmarkButtonlist[i]];
             
             m=m+115;
@@ -389,14 +413,30 @@
             imageOnVendorList[i].image = [UIImage imageWithContentsOfFile:datapath[i]];
             [vendorImageLand[i] addSubview:imageOnVendorList[i]];
             
-            vendorNameLand[i] = [[UILabel alloc]initWithFrame:CGRectMake(130, 35, 200, 20)];
+            vendorTitleLand[i] = [[UILabel alloc]initWithFrame:CGRectMake(130, 35, 200, 20)];
+            vendorTitleLand[i].backgroundColor = [UIColor clearColor];
+            vendorTitleLand[i].text = datatitle[i];
+            vendorTitleLand[i].font = [UIFont fontWithName:@"Helvetica Neue" size: 30.0];
+            vendorTitleLand[i].font = [UIFont boldSystemFontOfSize:15.0];
+            vendorTitleLand[i].textColor = [UIColor darkGrayColor];
+            [viewForListLand[i] addSubview:vendorTitleLand[i]];
+            
+            vendorNameLand[i] = [[UILabel alloc]initWithFrame:CGRectMake(330, 35, 200, 20)];
             vendorNameLand[i].backgroundColor = [UIColor clearColor];
             vendorNameLand[i].text = datapath[i];
             vendorNameLand[i].font = [UIFont fontWithName:@"Helvetica Neue" size: 30.0];
             vendorNameLand[i].font = [UIFont boldSystemFontOfSize:15.0];
-            vendorNameLand[i].textColor = [UIColor darkGrayColor];
+            vendorNameLand[i].textColor = [UIColor grayColor];
             [viewForListLand[i] addSubview:vendorNameLand[i]];
             
+            vendorDateLand[i] = [[UILabel alloc]initWithFrame:CGRectMake(330, 60, 200, 20)];
+            vendorDateLand[i].backgroundColor = [UIColor clearColor];
+            vendorDateLand[i].text = datadate[i];
+            vendorDateLand[i].font = [UIFont fontWithName:@"Helvetica Neue" size: 30.0];
+            vendorDateLand[i].font = [UIFont boldSystemFontOfSize:13.0];
+            vendorDateLand[i].textColor = [UIColor grayColor];
+            [viewForListLand[i] addSubview:vendorDateLand[i]];
+
             vendorDetailsLand[i] = [[UILabel alloc]initWithFrame:CGRectMake(130, 60, 200, 30)];
             vendorDetailsLand[i].backgroundColor = [UIColor clearColor];
             vendorDetailsLand[i].text = datatype[i];
@@ -419,7 +459,7 @@
             tickmarkButtonlistLand[i].userInteractionEnabled = NO;
             tickmarkButtonlistLand[i].alpha = 0.0;
             tickmarkButtonlistLand[i].tag = i;
-            [tickmarkButtonlistLand[i] setBackgroundImage:[UIImage imageNamed:@" "] forState:UIControlStateNormal];
+            [tickmarkButtonlistLand[i] setBackgroundImage:nil forState:UIControlStateNormal];
             [viewForListLand[i] addSubview:tickmarkButtonlistLand[i]];
             
             nXX=nXX+503;
@@ -432,9 +472,11 @@
     }
     
 }
+
 - (void)longPress:(UILongPressGestureRecognizer*)gesture {
     if ( gesture.state == UIGestureRecognizerStateBegan ) {
         NSLog(@"Long Press");
+        [sortByDate setBackgroundImage:[UIImage imageNamed:@"small_thumb.jpg"] forState:UIControlStateNormal];
         deleteVendorButton.alpha = 1.0;
         syncButton.alpha = 1.0;
         syncButtonLand.alpha = 1.0;
@@ -447,7 +489,7 @@
         syncButtonLand.alpha = 1.0;
         sortingTable.hidden = YES;
         sortingTableLand.hidden = YES;
-        //TEST
+        
         for (int i =0; i<totalVendors; i++)
         {
             
@@ -475,6 +517,7 @@
             [tickmarkButtonGridLand[gesture.view.tag] setBackgroundImage:[UIImage imageNamed:@"238_227.png"] forState:UIControlStateNormal];
             
         }
+        [deleteItems addObject:[NSString stringWithFormat:@"%@",dataid[gesture.view.tag]]];
 
     }
 }
@@ -483,7 +526,7 @@
     NSLog(@"inside tickmarkClicked ");
 //    NSString   *fetchdata = [NSString stringWithFormat:@"select id , vendor_name, Description, website  from ba_tbl_vendor WHERE id=%d",[sender tag]+1];
 //    [self displaySelctedVendor:fetchdata];
-    if([tickmarkButtonlist[sender.tag] backgroundImageForState:UIControlStateNormal] == [UIImage imageNamed:@" "]||[tickmarkButtonlistLand[sender.tag] backgroundImageForState:UIControlStateNormal] == [UIImage imageNamed:@" "])
+    if([tickmarkButtonlist[sender.tag] backgroundImageForState:UIControlStateNormal] == nil||[tickmarkButtonlistLand[sender.tag] backgroundImageForState:UIControlStateNormal] == nil)
     {
         [deleteItems addObject:[NSString stringWithFormat:@"%@",dataid[sender.tag]]];
         
@@ -496,16 +539,16 @@
     {
         [deleteItems removeObject:[NSString stringWithFormat:@"%@",dataid[sender.tag]]];
         
-        [tickmarkButtonlist[sender.tag] setBackgroundImage:[UIImage imageNamed:@" "] forState:UIControlStateNormal];
-        [tickmarkButtonlistLand[sender.tag] setBackgroundImage:[UIImage imageNamed:@" "] forState:UIControlStateNormal];
-        [tickmarkButtonGrid[sender.tag] setBackgroundImage:[UIImage imageNamed:@" "] forState:UIControlStateNormal];
-        [tickmarkButtonGridLand[sender.tag] setBackgroundImage:[UIImage imageNamed:@" "] forState:UIControlStateNormal];
+        [tickmarkButtonlist[sender.tag] setBackgroundImage:nil forState:UIControlStateNormal];
+        [tickmarkButtonlistLand[sender.tag] setBackgroundImage:nil forState:UIControlStateNormal];
+        [tickmarkButtonGrid[sender.tag] setBackgroundImage:nil forState:UIControlStateNormal];
+        [tickmarkButtonGridLand[sender.tag] setBackgroundImage:nil forState:UIControlStateNormal];
 
     }
     self.view.userInteractionEnabled = YES;
 }
 - (IBAction)deleteVendorButton:(id)sender {
-  
+  [self performSelector:@selector(offEditModeBtn:) withObject:nil afterDelay:0.0];
     NSLog(@"aa=%@",deleteItems);
     for (int i = 0; i<[deleteItems count]; i++) {
         
@@ -525,14 +568,8 @@
 
 -(void)openAddNote:(UIButton *)sender
 {
-    deleteVendorButton.alpha = 0.0;
-    shareVendorButton.alpha = 0.0;
-    syncButton.alpha = 0.0;
-    syncButtonLand.alpha = 0.0;
-    deleteVendorButtonLand.alpha = 0.0;
-    shareVendorButtonLand.alpha = 0.0;
-    offEditModeBtn.alpha = 0.0;
-    offEditModeBtnLand.alpha = 0.0;
+    [self performSelector:@selector(offEditModeBtn:) withObject:nil afterDelay:0.0];
+
        
     NSString   *fetchdata = [NSString stringWithFormat:@"select id , vendor_name, Description, website  from ba_tbl_vendor WHERE id=%d",[sender tag]+1];
     [self displaySelctedVendor:fetchdata];
@@ -662,6 +699,9 @@
     tableViewBgImage.alpha = 0.0;
     sortingTableLand.hidden = YES;
     tableViewBgImageLand.alpha = 0.0;
+    [deleteItems removeAllObjects];
+    [self performSelector:@selector(offEditModeBtn:) withObject:nil afterDelay:0.0];
+
 }
 
 
@@ -785,7 +825,8 @@
     [allVendorsButtonLand setBackgroundImage:[UIImage imageNamed:@"allvender.jpg"] forState:UIControlStateNormal];
     sortingTableLand.hidden = YES;
     tableViewBgImageLand.alpha = 0.0;
-    
+    [self performSelector:@selector(offEditModeBtn:) withObject:nil afterDelay:0.0];
+
     [self DisplayVendors];
 }
 
@@ -821,12 +862,15 @@
     [allVendorsButtonLand setBackgroundImage:[UIImage imageNamed:@"allvender.jpg"] forState:UIControlStateNormal];
     sortingTableLand.hidden = YES;
     tableViewBgImageLand.alpha = 0.0;
+    [self performSelector:@selector(offEditModeBtn:) withObject:nil afterDelay:0.0];
 
     
     [self DisplayVendors];
 }
 - (IBAction)syncButton:(id)sender
 {
+    [self performSelector:@selector(offEditModeBtn:) withObject:nil afterDelay:0.0];
+    
     for (int i =0; i<totalVendors; i++)
     {
         tickmarkButtonlist[i].alpha = 0.0;
@@ -856,8 +900,8 @@
     sortingTableLand.hidden = YES;
     tableViewBgImageLand.alpha = 0.0;
     
-    NSString   *fetchdata = [NSString stringWithFormat:@"select id , vendor_name, Description from ba_tbl_vendor"];
-    [self displayContentData:fetchdata];
+    NSString   *fetchdata = [NSString stringWithFormat:@"select id , vendor_name, Description, vendor_title, created_date from ba_tbl_vendor"];
+    [self displayAllVendorsInDB:fetchdata];
     
     totalVendors=TotalData;
     [self DisplayVendors];
@@ -895,6 +939,8 @@
     tableViewBgImageLand.alpha = 0.0;
     deleteVendorButtonLand.alpha = 0.0;
     shareVendorButtonLand.alpha = 0.0;
+    [self performSelector:@selector(offEditModeBtn:) withObject:nil afterDelay:0.0];
+
 }
 
 - (IBAction)sharedButton:(id)sender

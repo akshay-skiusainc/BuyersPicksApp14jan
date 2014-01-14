@@ -15,7 +15,7 @@
 @end
 
 @implementation OpenVendor
-@synthesize placeHolderTitle,sortedArray,lView,pView,INDEX,sortingTable,sortByDate,listView,gridView,editButton,syncButton,noteScroller,tableViewBgImage,deleteNoteButton,shareNoteButton,vendorDesciption,vendorid,vendorTitle,vendorWebsite,listAndGridIndex,shareNoteButtonLand;
+@synthesize placeHolderTitle,sortedArray,lView,pView,INDEX,sortingTable,sortByDate,listView,gridView,editButton,syncButton,noteScroller,tableViewBgImage,deleteNoteButton,shareNoteButton,vendorDesciption,vendorid,vendorTitle,vendorWebsite,listAndGridIndex,shareNoteButtonLand,vendorname;
 @synthesize listViewLand,gridViewLand,sortByDateLand,sortingTableLand,syncButtonLand,editButtonLand,noteScrollerLand,tableViewBgImageLand,deleteNoteButtonLand,deleteItems,offEditModeBtnLand,offEditModeBtn;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -118,6 +118,11 @@
     UIBarButtonItem *customBarItemBuyersImage= [[UIBarButtonItem alloc] initWithCustomView:navBarBuyersImage];
     
     [self.navigationItem setLeftBarButtonItems:[NSArray arrayWithObjects:customBarItemDone, customBarItemBuyersImage,nil]];
+   
+    tableViewBgImageLand.layer.cornerRadius = 10.0;
+    tableViewBgImageLand.clipsToBounds = YES;
+    tableViewBgImage.layer.cornerRadius = 10.0;
+    tableViewBgImage.clipsToBounds = YES;
 
     
   }
@@ -188,6 +193,7 @@
         
         AddNote *addNote = [[AddNote alloc]initWithNibName:@"AddNote" bundle:nil];
         addNote.vendorTitle=vendorTitle;
+        addNote.vendorName = vendorname;
         addNote.vendorDesciption=vendorDesciption;
         addNote.vendorWebsite=vendorWebsite;
         addNote.vendorid=vendorid;
@@ -278,7 +284,7 @@
             tickmarkButtonGrid[i].userInteractionEnabled = NO;
             tickmarkButtonGrid[i].alpha = 0.0;
             tickmarkButtonGrid[i].tag = i;
-            [tickmarkButtonGrid[i] setBackgroundImage:[UIImage imageNamed:@" "] forState:UIControlStateNormal];
+            [tickmarkButtonGrid[i] setBackgroundImage:nil forState:UIControlStateNormal];
             [vendorImage[i] addSubview:tickmarkButtonGrid[i]];
             
             
@@ -331,7 +337,7 @@
             tickmarkButtonGridLand[i].userInteractionEnabled = NO;
             tickmarkButtonGridLand[i].alpha = 0.0;
             tickmarkButtonGridLand[i].tag = i;
-            [tickmarkButtonGridLand[i] setBackgroundImage:[UIImage imageNamed:@" "] forState:UIControlStateNormal];
+            [tickmarkButtonGridLand[i] setBackgroundImage:nil forState:UIControlStateNormal];
             [vendorImageLand[i] addSubview:tickmarkButtonGridLand[i]];
             
             
@@ -434,11 +440,11 @@
             longPress.delegate = self;
             [vendorImage[i] addGestureRecognizer:longPress];
             
-            tickmarkButtonlist[i] = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 748, 115)];
+            tickmarkButtonlist[i] = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
             tickmarkButtonlist[i].userInteractionEnabled = NO;
             tickmarkButtonlist[i].alpha = 0.0;
             tickmarkButtonlist[i].tag = i;
-            [tickmarkButtonlist[i] setBackgroundImage:[UIImage imageNamed:@" "] forState:UIControlStateNormal];
+            [tickmarkButtonlist[i] setBackgroundImage:nil forState:UIControlStateNormal];
             [viewForList[i] addSubview:tickmarkButtonlist[i]];
             
             m=m+115;
@@ -513,11 +519,11 @@
             longPressLand.delegate = self;
             [vendorImageLand[i] addGestureRecognizer:longPressLand];
             
-            tickmarkButtonlistLand[i] = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 503, 115)];
+            tickmarkButtonlistLand[i] = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
             tickmarkButtonlistLand[i].userInteractionEnabled = NO;
             tickmarkButtonlistLand[i].alpha = 0.0;
             tickmarkButtonlistLand[i].tag = i;
-            [tickmarkButtonlistLand[i] setBackgroundImage:[UIImage imageNamed:@" "] forState:UIControlStateNormal];
+            [tickmarkButtonlistLand[i] setBackgroundImage:nil forState:UIControlStateNormal];
             [viewForListLand[i] addSubview:tickmarkButtonlistLand[i]];
             
             nXX=nXX+503;
@@ -532,6 +538,10 @@
 }
 
 - (void)longPress:(UILongPressGestureRecognizer*)gesture {
+    
+    [sortByDate setBackgroundImage:[UIImage imageNamed:@"small_thumb.jpg"] forState:UIControlStateNormal];
+
+    
     if ( gesture.state == UIGestureRecognizerStateBegan ) {
         NSLog(@"Long Press");
         deleteNoteButton.alpha = 1.0;
@@ -581,10 +591,7 @@
     NSLog(@"inside tickmarkClicked ");
    
 
-    NSLog(@"inside tickmarkClicked ");
-    //    NSString   *fetchdata = [NSString stringWithFormat:@"select id , vendor_name, Description, website  from ba_tbl_vendor WHERE id=%d",[sender tag]+1];
-    //    [self displaySelctedVendor:fetchdata];
-    if([tickmarkButtonlist[sender.tag] backgroundImageForState:UIControlStateNormal] == [UIImage imageNamed:@" "]||[tickmarkButtonlistLand[sender.tag] backgroundImageForState:UIControlStateNormal] == [UIImage imageNamed:@" "])
+    if([tickmarkButtonlist[sender.tag] backgroundImageForState:UIControlStateNormal] == nil||[tickmarkButtonlistLand[sender.tag] backgroundImageForState:UIControlStateNormal] == nil)
     {
         [deleteItems addObject:[NSString stringWithFormat:@"%@",dataid[sender.tag]]];
         
@@ -593,21 +600,21 @@
         [tickmarkButtonGrid[sender.tag] setBackgroundImage:[UIImage imageNamed:@"238_227.png"] forState:UIControlStateNormal];
         [tickmarkButtonGridLand[sender.tag] setBackgroundImage:[UIImage imageNamed:@"238_227.png"] forState:UIControlStateNormal];
     }
-    else //if([tickmarkButton[sender.tag] backgroundImageForState:UIControlStateNormal] == [UIImage imageNamed:@"check.png"]||[tickmarkButtonLand[sender.tag] backgroundImageForState:UIControlStateNormal] == [UIImage imageNamed:@"check.png"])
+    else 
     {
         [deleteItems removeObject:[NSString stringWithFormat:@"%@",dataid[sender.tag]]];
         
-        [tickmarkButtonlist[sender.tag] setBackgroundImage:[UIImage imageNamed:@" "] forState:UIControlStateNormal];
-        [tickmarkButtonlistLand[sender.tag] setBackgroundImage:[UIImage imageNamed:@" "] forState:UIControlStateNormal];
-        [tickmarkButtonGrid[sender.tag] setBackgroundImage:[UIImage imageNamed:@" "] forState:UIControlStateNormal];
-        [tickmarkButtonGridLand[sender.tag] setBackgroundImage:[UIImage imageNamed:@" "] forState:UIControlStateNormal];
+        [tickmarkButtonlist[sender.tag] setBackgroundImage:nil forState:UIControlStateNormal];
+        [tickmarkButtonlistLand[sender.tag] setBackgroundImage:nil forState:UIControlStateNormal];
+        [tickmarkButtonGrid[sender.tag] setBackgroundImage:nil forState:UIControlStateNormal];
+        [tickmarkButtonGridLand[sender.tag] setBackgroundImage:nil forState:UIControlStateNormal];
         
     }
-    self.view.userInteractionEnabled = YES;
+   
 }
 
 - (IBAction)deleteVendorButton:(id)sender {
-    
+    [self performSelector:@selector(offEditModeBtn:) withObject:nil afterDelay:0.0];
     NSLog(@"aa=%@",deleteItems);
     for (int i = 0; i<[deleteItems count]; i++) {
         
@@ -628,6 +635,8 @@
 
 - (IBAction)sharedButton:(id)sender
 {
+    [self performSelector:@selector(offEditModeBtn:) withObject:nil afterDelay:0.0];
+    
     for (int i =0; i<TotalData; i++)
     {
         tickmarkButtonlist[i].alpha = 0.0;
@@ -730,14 +739,8 @@
 
 - (IBAction)sortByDate:(id)sender
 {
-     deleteNoteButton.alpha = 0.0;
-     shareNoteButton.alpha = 0.0;
-     deleteNoteButtonLand.alpha = 0.0;
-     shareNoteButtonLand.alpha = 0.0;
-    syncButton.alpha = 0.0;
-    syncButtonLand.alpha = 0.0;
-    offEditModeBtn.alpha = 0.0;
-    offEditModeBtnLand.alpha = 0.0;
+     [self performSelector:@selector(offEditModeBtn:) withObject:nil afterDelay:0.0];
+    
     
     [self.pView addSubview:tableViewBgImage];
     [self.pView addSubview:sortingTable];
@@ -764,6 +767,7 @@
 
 - (IBAction)displayGridView:(id)sender
 {
+     [self performSelector:@selector(offEditModeBtn:) withObject:nil afterDelay:0.0];
     for (int i =0; i<TotalData; i++)
     {
         tickmarkButtonlist[i].alpha = 0.0;
@@ -796,6 +800,7 @@
 
 - (IBAction)displayListView:(id)sender
 {
+     [self performSelector:@selector(offEditModeBtn:) withObject:nil afterDelay:0.0];
     for (int i =0; i<TotalData; i++)
     {
         tickmarkButtonlist[i].alpha = 0.0;
@@ -843,6 +848,7 @@
   
     sortingTable.hidden = YES;
     tableViewBgImage.alpha = 0.0;
+     [self performSelector:@selector(offEditModeBtn:) withObject:nil afterDelay:0.0];
     
     NSString   *fetchdata = [NSString stringWithFormat:@"select id , vendor_name, Description from ba_tbl_vendor"];
     [self displayContentData:fetchdata];
@@ -899,11 +905,48 @@
 {
     AddNote *addNote = [[AddNote alloc]initWithNibName:@"AddNote" bundle:nil];
     addNote.vendorTitle=vendorTitle;
+    addNote.vendorName = vendorname;
     addNote.vendorDesciption=vendorDesciption;
     addNote.vendorWebsite=vendorWebsite;
     addNote.vendorid=vendorid;
     
     [self.navigationController pushViewController:addNote animated:YES];
+}
+
+- (IBAction)offEditModeBtn:(id)sender {
+    
+    deleteNoteButton.alpha = 0.0;
+    shareNoteButton.alpha = 0.0;
+    deleteNoteButtonLand.alpha = 0.0;
+    shareNoteButtonLand.alpha = 0.0;
+    offEditModeBtn.alpha = 0.0;
+    offEditModeBtnLand.alpha = 0.0;
+    syncButton.alpha = 0.0;
+    syncButtonLand.alpha = 0.0;
+    
+    for (int i =0; i<TotalData; i++)
+    {
+        tickmarkButtonlist[i].alpha = 0.0;
+        tickmarkButtonlistLand[i].alpha = 0.0;
+        tickmarkButtonGridLand[i].alpha = 0.0;
+        tickmarkButtonGrid[i].alpha = 0.0;
+        
+        [tickmarkButtonlist[i] setBackgroundImage:[UIImage imageNamed:@" "] forState:UIControlStateNormal];
+        [tickmarkButtonlistLand[i] setBackgroundImage:[UIImage imageNamed:@" "] forState:UIControlStateNormal];
+        [tickmarkButtonGrid[i] setBackgroundImage:[UIImage imageNamed:@" "] forState:UIControlStateNormal];
+        [tickmarkButtonGridLand[i] setBackgroundImage:[UIImage imageNamed:@" "] forState:UIControlStateNormal];
+        
+    }
+    
+}
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:YES];
+    sortingTable.hidden = YES;
+    sortingTableLand.hidden = YES;
+    tableViewBgImage.alpha= 0.0;
+    tableViewBgImageLand.alpha = 0.0;
+     [self performSelector:@selector(offEditModeBtn:) withObject:nil afterDelay:0.0];
 }
 - (void)didReceiveMemoryWarning
 {

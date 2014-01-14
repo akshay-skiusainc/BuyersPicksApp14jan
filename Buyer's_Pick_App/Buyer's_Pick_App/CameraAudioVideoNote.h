@@ -31,19 +31,17 @@
     UIButton *deleteButton;
     UIButton *crossButton[1000];
     
-    UIScrollView *scrollLand;
-    UIImageView *savedImageToiPadLand[5000];
-    UIImageView *frameLand[1000];
-    UIButton *crossButtonLand[1000];
+//    UIScrollView *scrollLand;
+//    UIImageView *savedImageToiPadLand[5000];
+//    UIImageView *frameLand[1000];
+//    UIButton *crossButtonLand[1000];
 }
 
 @property (nonatomic,strong)NSString* TAG;
 @property (nonatomic)int deleteNoteIndex;
 @property (nonatomic)int navTagFromHome;
-@property (strong, nonatomic) IBOutlet UIView *pView;
-@property (strong, nonatomic) IBOutlet UIView *lView;
 @property (strong, nonatomic) IBOutlet UIScrollView *noteScroller;
-@property (strong, nonatomic) IBOutlet UIScrollView *noteScrollerLand;
+//@property (strong, nonatomic) IBOutlet UIScrollView *noteScrollerLand;
 @property(strong,nonatomic) NSMutableDictionary *AllNotes;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *mainActivityIndicator;
 
@@ -65,11 +63,11 @@
 @property (strong, nonatomic) IBOutlet UIImageView *bgImageForSwitch;
 
 
-@property (strong, nonatomic) IBOutlet UISwitch *cameraToggleSwitchLand;
-@property (strong, nonatomic) IBOutlet UIView *viewForRecordingLand;
-@property (strong, nonatomic) IBOutlet UIButton *imageCaptureButtonLand;
-@property (strong, nonatomic) IBOutlet UIButton *cameraButtonLand;
-@property (strong, nonatomic) IBOutlet UIImageView *bgImageForSwitchLand;
+//@property (strong, nonatomic) IBOutlet UISwitch *cameraToggleSwitchLand;
+//@property (strong, nonatomic) IBOutlet UIView *viewForRecordingLand;
+//@property (strong, nonatomic) IBOutlet UIButton *imageCaptureButtonLand;
+//@property (strong, nonatomic) IBOutlet UIButton *cameraButtonLand;
+//@property (strong, nonatomic) IBOutlet UIImageView *bgImageForSwitchLand;
 
 
 //Audio
@@ -78,10 +76,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (strong, nonatomic) IBOutlet UIView *audioRecordView;
 
-@property (weak, nonatomic) IBOutlet UIButton *recordPauseButtonLand;
-@property (weak, nonatomic) IBOutlet UIButton *stopButtonLand;
-@property (weak, nonatomic) IBOutlet UIButton *playButtonLand;
-@property (strong, nonatomic) IBOutlet UIView *audioRecordViewLand;
+//@property (weak, nonatomic) IBOutlet UIButton *recordPauseButtonLand;
+//@property (weak, nonatomic) IBOutlet UIButton *stopButtonLand;
+//@property (weak, nonatomic) IBOutlet UIButton *playButtonLand;
+//@property (strong, nonatomic) IBOutlet UIView *audioRecordViewLand;
 
 - (IBAction)recordPauseTapped:(id)sender;
 - (IBAction)stopTapped:(id)sender;
@@ -98,12 +96,12 @@
 @property (strong, nonatomic) IBOutlet UILabel *videoTime;
 
 
-@property (strong, nonatomic) IBOutlet UIView *videoRecordingViewLand;
-@property (strong, nonatomic) IBOutlet UIButton *startVideoLand;
-@property (strong, nonatomic) IBOutlet UIButton *stopVideoLand;
-@property (strong, nonatomic) IBOutlet UIImageView *switchCameraImageLand;
-@property (strong, nonatomic) IBOutlet UIImageView *switchVideoImageLand;
-@property (strong, nonatomic) IBOutlet UILabel *videoTimeLand;
+//@property (strong, nonatomic) IBOutlet UIView *videoRecordingViewLand;
+//@property (strong, nonatomic) IBOutlet UIButton *startVideoLand;
+//@property (strong, nonatomic) IBOutlet UIButton *stopVideoLand;
+//@property (strong, nonatomic) IBOutlet UIImageView *switchCameraImageLand;
+//@property (strong, nonatomic) IBOutlet UIImageView *switchVideoImageLand;
+//@property (strong, nonatomic) IBOutlet UILabel *videoTimeLand;
 
 - (IBAction)startRecording:(id)sender;
 
@@ -117,10 +115,10 @@
 @property (strong, nonatomic) IBOutlet UIButton *saveText;
 @property (strong, nonatomic) IBOutlet UIButton *cancleText;
 
-@property (strong,nonatomic) IBOutlet UITextView *noteTextViewLand;
-@property (strong, nonatomic) IBOutlet UIImageView *textViewBgImageLand;
-@property (strong, nonatomic) IBOutlet UIButton *saveTextLand;
-@property (strong, nonatomic) IBOutlet UIButton *cancleTextLand;
+//@property (strong,nonatomic) IBOutlet UITextView *noteTextViewLand;
+//@property (strong, nonatomic) IBOutlet UIImageView *textViewBgImageLand;
+//@property (strong, nonatomic) IBOutlet UIButton *saveTextLand;
+//@property (strong, nonatomic) IBOutlet UIButton *cancleTextLand;
 
 @property (nonatomic,retain)UILabel *placeHolderTitle;
 @property (nonatomic,retain)NSString *savedDescription;

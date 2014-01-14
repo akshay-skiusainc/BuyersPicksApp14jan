@@ -21,23 +21,23 @@
 @end
 
 @implementation CameraAudioVideoNote
-@synthesize lView,pView,noteScroller,savedImage,AllNotes,mainActivityIndicator,navTagFromHome,deleteNoteIndex,noteScrollerLand,TAG;
+@synthesize noteScroller,savedImage,AllNotes,mainActivityIndicator,navTagFromHome,deleteNoteIndex,TAG;
 
 //camera
 @synthesize frontCamera,backCamera,cameraTag,cameraButton,device,imageArray,imageCaptureButton,viewForRecording,cameraToggleSwitch,input,thumbTintColor,bgImageForSwitch,switchCameraImage,switchVideoImage;
-@synthesize cameraToggleSwitchLand,cameraButtonLand,viewForRecordingLand,imageCaptureButtonLand,bgImageForSwitchLand;
+//@synthesize cameraToggleSwitchLand,cameraButtonLand,viewForRecordingLand,imageCaptureButtonLand,bgImageForSwitchLand;
 
 //Audio
 @synthesize stopButton, playButton, recordPauseButton,audioRecordView;
-@synthesize recordPauseButtonLand,stopButtonLand,playButtonLand,audioRecordViewLand;
+//@synthesize recordPauseButtonLand,stopButtonLand,playButtonLand,audioRecordViewLand;
 
 //Video
 @synthesize startVideo,stopVideo,videoRecordingView,videoPreviewTag,videoTime;
-@synthesize videoRecordingViewLand,startVideoLand,stopVideoLand,switchCameraImageLand,switchVideoImageLand,videoTimeLand;
+//@synthesize videoRecordingViewLand,startVideoLand,stopVideoLand,switchCameraImageLand,switchVideoImageLand,videoTimeLand;
 
 //Text
 @synthesize saveText,cancleText,textViewBgImage,placeHolderTitle,savedDescription,noteTextView;
-@synthesize noteTextViewLand,textViewBgImageLand,saveTextLand,cancleTextLand;
+//@synthesize noteTextViewLand,textViewBgImageLand,saveTextLand,cancleTextLand;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -162,8 +162,7 @@
         
         switchVideoImage.image = [UIImage imageNamed:@"video_recic.png"];
         switchCameraImage.image = [UIImage imageNamed:@"photoimg.png"];
-        switchVideoImageLand.image = [UIImage imageNamed:@"video_recic.png"];
-        switchCameraImageLand.image = [UIImage imageNamed:@"photoimg.png"];
+     
         
         [navCameraButton setImage:[UIImage imageNamed:@"cameraic_on.jpg"] forState:UIControlStateNormal];
         [videoButton setImage:[UIImage imageNamed:@"videoic.png"] forState:UIControlStateNormal];
@@ -184,25 +183,25 @@
         switchVideoImage.alpha = 1.0;
         switchCameraImage.alpha = 1.0;
         cameraToggleSwitch.alpha = 1.0;
-        [self.pView addSubview:imageCaptureButton];
-        [self.pView addSubview:cameraButton];
+        [self.view addSubview:imageCaptureButton];
+        [self.view addSubview:cameraButton];
         cameraToggleSwitch.on = NO;
         
-        videoTimeLand.alpha = 0.0;
-        audioRecordViewLand.alpha = 0.0;
-        noteTextViewLand.alpha = 0.0;
-        viewForRecordingLand.alpha = 1.0;
-        videoRecordingViewLand.alpha = 0.0;
-        saveTextLand.alpha = 0.0;
-        cancleTextLand.alpha = 0.0;
-        textViewBgImageLand.alpha = 0.0;
-        bgImageForSwitchLand.alpha = 1.0;
-        switchVideoImageLand.alpha = 1.0;
-        switchCameraImageLand.alpha = 1.0;
-        cameraToggleSwitchLand.alpha = 1.0;
-        [self.lView addSubview:imageCaptureButtonLand];
-        [self.lView addSubview:cameraButtonLand];
-        cameraToggleSwitchLand.on = NO;
+//        videoTimeLand.alpha = 0.0;
+//        audioRecordViewLand.alpha = 0.0;
+//        noteTextViewLand.alpha = 0.0;
+//        viewForRecordingLand.alpha = 1.0;
+//        videoRecordingViewLand.alpha = 0.0;
+//        saveTextLand.alpha = 0.0;
+//        cancleTextLand.alpha = 0.0;
+//        textViewBgImageLand.alpha = 0.0;
+//        bgImageForSwitchLand.alpha = 1.0;
+//        switchVideoImageLand.alpha = 1.0;
+//        switchCameraImageLand.alpha = 1.0;
+//        cameraToggleSwitchLand.alpha = 1.0;
+//        [self.lView addSubview:imageCaptureButtonLand];
+//        [self.lView addSubview:cameraButtonLand];
+//        cameraToggleSwitchLand.on = NO;
 
         
     }
@@ -211,8 +210,8 @@
     {
         switchVideoImage.image = [UIImage imageNamed:@"video_ic.png"];
         switchCameraImage.image = [UIImage imageNamed:@"recimg.png"];
-        switchVideoImageLand.image = [UIImage imageNamed:@"video_ic.png"];
-        switchCameraImageLand.image = [UIImage imageNamed:@"recimg.png"];
+//        switchVideoImageLand.image = [UIImage imageNamed:@"video_ic.png"];
+//        switchCameraImageLand.image = [UIImage imageNamed:@"recimg.png"];
         
         [navCameraButton setImage:[UIImage imageNamed:@"cameraic.png"] forState:UIControlStateNormal];
         [videoButton setImage:[UIImage imageNamed:@"videoic.png"] forState:UIControlStateNormal];
@@ -233,18 +232,18 @@
         switchCameraImage.alpha = 0.0;
         cameraToggleSwitch.alpha = 0.0;
         
-        videoTimeLand.alpha = 0.0;
-        audioRecordViewLand.alpha = 1.0;
-        noteTextViewLand.alpha = 0.0;
-        viewForRecordingLand.alpha = 0.0;
-        videoRecordingViewLand.alpha = 0.0;
-        saveTextLand.alpha = 0.0;
-        cancleTextLand.alpha = 0.0;
-        textViewBgImageLand.alpha = 0.0;
-        bgImageForSwitchLand.alpha = 0.0;
-        switchVideoImageLand.alpha = 0.0;
-        switchCameraImageLand.alpha = 0.0;
-        cameraToggleSwitchLand.alpha = 0.0;
+//        videoTimeLand.alpha = 0.0;
+//        audioRecordViewLand.alpha = 1.0;
+//        noteTextViewLand.alpha = 0.0;
+//        viewForRecordingLand.alpha = 0.0;
+//        videoRecordingViewLand.alpha = 0.0;
+//        saveTextLand.alpha = 0.0;
+//        cancleTextLand.alpha = 0.0;
+//        textViewBgImageLand.alpha = 0.0;
+//        bgImageForSwitchLand.alpha = 0.0;
+//        switchVideoImageLand.alpha = 0.0;
+//        switchCameraImageLand.alpha = 0.0;
+//        cameraToggleSwitchLand.alpha = 0.0;
 
     }
     if(navTagFromHome == 2)
@@ -268,18 +267,18 @@
         switchCameraImage.alpha = 0.0;
         cameraToggleSwitch.alpha = 0.0;
         
-        videoTimeLand.alpha = 0.0;
-        audioRecordViewLand.alpha = 0.0;
-        noteTextViewLand.alpha = 1.0;
-        viewForRecordingLand.alpha = 0.0;
-        videoRecordingViewLand.alpha = 0.0;
-        saveTextLand.alpha = 1.0;
-        cancleTextLand.alpha = 1.0;
-        textViewBgImageLand.alpha = 1.0;
-        bgImageForSwitchLand.alpha = 0.0;
-        switchVideoImageLand.alpha = 0.0;
-        switchCameraImageLand.alpha = 0.0;
-        cameraToggleSwitchLand.alpha = 0.0;
+//        videoTimeLand.alpha = 0.0;
+//        audioRecordViewLand.alpha = 0.0;
+//        noteTextViewLand.alpha = 1.0;
+//        viewForRecordingLand.alpha = 0.0;
+//        videoRecordingViewLand.alpha = 0.0;
+//        saveTextLand.alpha = 1.0;
+//        cancleTextLand.alpha = 1.0;
+//        textViewBgImageLand.alpha = 1.0;
+//        bgImageForSwitchLand.alpha = 0.0;
+//        switchVideoImageLand.alpha = 0.0;
+//        switchCameraImageLand.alpha = 0.0;
+//        cameraToggleSwitchLand.alpha = 0.0;
     }
     
     
@@ -300,8 +299,8 @@
     [cameraToggleSwitch setThumbTintColor:[self thumbTintColor]];
     cameraToggleSwitch.on = NO;
     
-    [cameraToggleSwitchLand setThumbTintColor:[self thumbTintColor]];
-    cameraToggleSwitchLand.on = NO;
+//    [cameraToggleSwitchLand setThumbTintColor:[self thumbTintColor]];
+//    cameraToggleSwitchLand.on = NO;
 }
 
 
@@ -309,7 +308,7 @@
 {
     
     [[noteScroller subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    [[noteScrollerLand subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+   // [[noteScrollerLand subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
 //    [Scroller removeFromSuperview];
 //    Scroller=nil;
@@ -374,52 +373,10 @@
             [ crossButton[i] addTarget:self action:@selector(deleteNote:) forControlEvents:UIControlEventTouchUpInside];
             [frame[i] addSubview:crossButton[i]];
             
-            
-            
-            
-            frameLand[i] = [[UIImageView alloc] initWithFrame:CGRectMake(mX,mY , 173,176)];
-            frameLand[i].image = [UIImage imageNamed:@"note_rec.jpg"];
-            frameLand[i].userInteractionEnabled=YES;
-            [noteScrollerLand addSubview:frameLand[i]];
-            
-            if ([datatype[i] isEqualToString:@"image"]) {
-                frameLand[i].image = [UIImage imageWithContentsOfFile:datapath[i]];
-                UIImageView *blackPhotoImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 173, 176)];
-                blackPhotoImage.image = [UIImage imageNamed:@"blank.png"];
-                [frameLand[i] addSubview:blackPhotoImage];
-            }
-            
-            
-            
-            if ([datatype[i] isEqualToString:@"video"]) {
-                frameLand[i].image = [UIImage imageNamed:@"video_rec.jpg"];
-                
-            }
-            
-            
-            if ([datatype[i] isEqualToString:@"audio"]) {
-                frameLand[i].image = [UIImage imageNamed:@"voice_rec.jpg"];
-                
-            }
-            
-            
-            
-            if ([datatype[i] isEqualToString:@"text"]) {
-                frameLand[i].image = [UIImage imageNamed:@"note.png"];
-                
-            }
-            if(deleteNoteIndex==6)
-            {
-                crossButtonLand[i]	= [UIButton buttonWithType:UIButtonTypeCustom];
-                crossButtonLand[i].frame = CGRectMake(173-50, 176-50, 50, 50);
-                crossButtonLand[i].userInteractionEnabled = YES;
-                crossButtonLand[i].tag = [dataid[i] intValue];
-                [crossButtonLand[i] setImage:[UIImage imageNamed:@"closeic.png"] forState:UIControlStateNormal];
-                [ crossButtonLand[i] addTarget:self action:@selector(deleteNote:) forControlEvents:UIControlEventTouchUpInside];
-                [frameLand[i] addSubview:crossButtonLand[i]];
-
-            }
         }
+        
+            
+           // frameLand[i] = [[UIImageView alloc] initWithFrame:CGRectMake(mX,mY , 173,176)];
         
             j+=183;
             mX = mX+180;
@@ -433,23 +390,17 @@
     webViewTapped.delegate = self;
     [frame[i] addGestureRecognizer:webViewTapped];
         
-        UITapGestureRecognizer *webViewTappedLand = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(openclass:)];
-        webViewTappedLand.numberOfTapsRequired = 1;
-        frameLand[i].tag=i;
-        webViewTappedLand.delegate = self;
-        [frameLand[i] addGestureRecognizer:webViewTappedLand];
-
-    }
+}
     
     noteScroller.contentSize = CGSizeMake(TotalData*183, 178);
-    if(TotalData%2==0)
-    {
-        noteScrollerLand.contentSize = CGSizeMake(180, 182*TotalData/2);
-    }
-    else
-    {
-         noteScrollerLand.contentSize = CGSizeMake(180, 182*TotalData/2+182);
-    }
+//    if(TotalData%2==0)
+//    {
+//        noteScroller.contentSize = CGSizeMake(180, 182*TotalData/2);
+//    }
+//    else
+//    {
+//         noteScroller.contentSize = CGSizeMake(180, 182*TotalData/2+182);
+//    }
  
 }
 
@@ -498,29 +449,29 @@
         [player stop];
         [placeHolderTitle removeFromSuperview];
 
-        [self.pView addSubview:noteTextView];
+        [self.view addSubview:noteTextView];
 
         noteTextView.text= datapath[gesture.view.tag];
         
         
-        textViewBgImageLand.alpha = 1.0;
-        videoRecordingViewLand.alpha = 0.0;
-        noteTextViewLand.alpha = 0.0;
-        cameraToggleSwitchLand.alpha = 0.0;
-        viewForRecordingLand.alpha = 0.0;
-        audioRecordViewLand.alpha = 0.0;
-        imageCaptureButtonLand.alpha = 0.0;
-        cameraButtonLand.alpha = 0.0;
-        startVideoLand.alpha = 0.0;
-        stopVideoLand.alpha = 0.0;
-        noteTextViewLand.alpha = 1.0;
-        saveTextLand.alpha = 1.0;
-        cancleTextLand.alpha = 1.0;
-        bgImageForSwitchLand.alpha = 0.0;
-        switchVideoImageLand.alpha = 0.0;
-        switchCameraImageLand.alpha = 0.0;
-        [self.lView addSubview:noteTextViewLand];
-        noteTextViewLand.text= datapath[gesture.view.tag];
+//        textViewBgImageLand.alpha = 1.0;
+//        videoRecordingViewLand.alpha = 0.0;
+//        noteTextViewLand.alpha = 0.0;
+//        cameraToggleSwitchLand.alpha = 0.0;
+//        viewForRecordingLand.alpha = 0.0;
+//        audioRecordViewLand.alpha = 0.0;
+//        imageCaptureButtonLand.alpha = 0.0;
+//        cameraButtonLand.alpha = 0.0;
+//        startVideoLand.alpha = 0.0;
+//        stopVideoLand.alpha = 0.0;
+//        noteTextViewLand.alpha = 1.0;
+//        saveTextLand.alpha = 1.0;
+//        cancleTextLand.alpha = 1.0;
+//        bgImageForSwitchLand.alpha = 0.0;
+//        switchVideoImageLand.alpha = 0.0;
+//        switchCameraImageLand.alpha = 0.0;
+//        [self.lView addSubview:noteTextViewLand];
+//        noteTextViewLand.text= datapath[gesture.view.tag];
     }
     else if ([datatype[gesture.view.tag] isEqualToString:@"image"])
     {
@@ -600,19 +551,19 @@
     mainActivityIndicator.alpha = 1.0;
     deleteNoteIndex=0;
 
-    [self.pView addSubview:mainActivityIndicator];
+    [self.view addSubview:mainActivityIndicator];
     NSLog(@"sender.tag = %d",sender.tag);
     if(sender.tag == 0)
     {
       //  [[CameraEngine engine] shutdown];
         cameraToggleSwitch.on = NO;
 
-        [self.pView addSubview:bgImageForSwitch];
-        [self.pView addSubview:switchCameraImage];
-        [self.pView addSubview:switchVideoImage];
-        [self.pView addSubview:cameraToggleSwitch];
-        [self.pView addSubview:imageCaptureButton];
-        [self.pView addSubview:cameraButton];
+        [self.view addSubview:bgImageForSwitch];
+        [self.view addSubview:switchCameraImage];
+        [self.view addSubview:switchVideoImage];
+        [self.view addSubview:cameraToggleSwitch];
+        [self.view addSubview:imageCaptureButton];
+        [self.view addSubview:cameraButton];
         switchVideoImage.image = [UIImage imageNamed:@"video_recic.png"];
         switchCameraImage.image = [UIImage imageNamed:@"photoimg.png"];
         [navCameraButton setImage:[UIImage imageNamed:@"cameraic_on.jpg"] forState:UIControlStateNormal];
@@ -629,8 +580,8 @@
         videoRecordingView.alpha = 0.0;
         imageCaptureButton.alpha = 1.0;
         cameraButton.alpha = 1.0;
-        [self.pView addSubview:imageCaptureButton];
-        [self.pView addSubview:cameraButton];
+        [self.view addSubview:imageCaptureButton];
+        [self.view addSubview:cameraButton];
         audioRecordView.alpha = 0.0;
         noteTextView.alpha = 0.0;
         cameraToggleSwitch.alpha = 1.0;
@@ -642,33 +593,33 @@
         switchCameraImage.alpha = 1.0;
         
         
-        [self.lView addSubview:bgImageForSwitchLand];
-        [self.lView addSubview:switchCameraImageLand];
-        [self.lView addSubview:switchVideoImageLand];
-        [self.lView addSubview:cameraToggleSwitchLand];
-        [self.lView addSubview:imageCaptureButtonLand];
-        [self.lView addSubview:cameraButtonLand];
-        switchVideoImageLand.image = [UIImage imageNamed:@"video_recic.png"];
-        switchCameraImageLand.image = [UIImage imageNamed:@"photoimg.png"];
-        videoTimeLand.alpha = 0.0;
-        textViewBgImageLand.alpha = 0.0;
-        saveTextLand.alpha = 0.0;
-        cancleTextLand.alpha = 0.0;
-        noteTextViewLand.alpha = 0.0;
-        videoRecordingViewLand.alpha = 0.0;
-        imageCaptureButtonLand.alpha = 1.0;
-        cameraButtonLand.alpha = 1.0;
-        [self.lView addSubview:imageCaptureButtonLand];
-        [self.lView addSubview:cameraButtonLand];
-        audioRecordViewLand.alpha = 0.0;
-        noteTextViewLand.alpha = 0.0;
-        cameraToggleSwitchLand.alpha = 1.0;
-        viewForRecordingLand.alpha = 1.0;
-        startVideoLand.alpha = 0.0;
-        stopVideoLand.alpha = 0.0;
-        bgImageForSwitchLand.alpha = 1.0;
-        switchVideoImageLand.alpha = 1.0;
-        switchCameraImageLand.alpha = 1.0;
+//        [self.lView addSubview:bgImageForSwitchLand];
+//        [self.lView addSubview:switchCameraImageLand];
+//        [self.lView addSubview:switchVideoImageLand];
+//        [self.lView addSubview:cameraToggleSwitchLand];
+//        [self.lView addSubview:imageCaptureButtonLand];
+//        [self.lView addSubview:cameraButtonLand];
+//        switchVideoImageLand.image = [UIImage imageNamed:@"video_recic.png"];
+//        switchCameraImageLand.image = [UIImage imageNamed:@"photoimg.png"];
+//        videoTimeLand.alpha = 0.0;
+//        textViewBgImageLand.alpha = 0.0;
+//        saveTextLand.alpha = 0.0;
+//        cancleTextLand.alpha = 0.0;
+//        noteTextViewLand.alpha = 0.0;
+//        videoRecordingViewLand.alpha = 0.0;
+//        imageCaptureButtonLand.alpha = 1.0;
+//        cameraButtonLand.alpha = 1.0;
+//        [self.lView addSubview:imageCaptureButtonLand];
+//        [self.lView addSubview:cameraButtonLand];
+//        audioRecordViewLand.alpha = 0.0;
+//        noteTextViewLand.alpha = 0.0;
+//        cameraToggleSwitchLand.alpha = 1.0;
+//        viewForRecordingLand.alpha = 1.0;
+//        startVideoLand.alpha = 0.0;
+//        stopVideoLand.alpha = 0.0;
+//        bgImageForSwitchLand.alpha = 1.0;
+//        switchVideoImageLand.alpha = 1.0;
+//        switchCameraImageLand.alpha = 1.0;
 
         
         
@@ -683,13 +634,6 @@
         
         [self.viewForRecording.layer addSublayer:preview];
         
-//        AVCaptureVideoPreviewLayer* previewLand = [[CameraEngine engine] getPreviewLayer];
-//        [previewLand removeFromSuperlayer];
-//        previewLand.frame = self.viewForRecordingLand.bounds;
-//        
-//        [self.viewForRecordingLand.layer addSublayer:previewLand];
-
-
         
     }
     if(sender.tag == 1)
@@ -719,13 +663,13 @@
         switchVideoImage.alpha = 1.0;
         switchCameraImage.alpha = 1.0;
     
-        [self.pView addSubview:cameraButton];
-        [self.pView addSubview:startVideo];
-        [self.pView addSubview:bgImageForSwitch];
-        [self.pView addSubview:switchCameraImage];
-        [self.pView addSubview:switchVideoImage];
-        [self.pView addSubview:cameraToggleSwitch];
-        [self.pView addSubview:stopVideo];
+        [self.view addSubview:cameraButton];
+        [self.view addSubview:startVideo];
+        [self.view addSubview:bgImageForSwitch];
+        [self.view addSubview:switchCameraImage];
+        [self.view addSubview:switchVideoImage];
+        [self.view addSubview:cameraToggleSwitch];
+        [self.view addSubview:stopVideo];
 
         startVideo.alpha = 1.0;
         stopVideo.alpha = 1.0;
@@ -742,47 +686,7 @@
           
           [self.videoRecordingView.layer addSublayer:preview];
         
-        
-        
-        
-        switchVideoImageLand.image = [UIImage imageNamed:@"video_ic.png"];
-        switchCameraImageLand.image = [UIImage imageNamed:@"recimg.png"];
-        cameraToggleSwitchLand.on = YES;
-        videoTimeLand.alpha = 1.0;
-        textViewBgImageLand.alpha = 0.0;
-        saveTextLand.alpha = 0.0;
-        cancleTextLand.alpha = 0.0;
-        noteTextViewLand.alpha = 0.0;
-        videoRecordingViewLand.alpha = 1.0;
-        viewForRecordingLand.alpha = 0.0;
-        noteTextViewLand.alpha = 0.0;
-        cameraToggleSwitchLand.alpha = 1.0;
-        audioRecordViewLand.alpha = 0.0;
-        imageCaptureButtonLand.alpha = 0.0;
-        cameraButtonLand.alpha = 1.0;
-        bgImageForSwitchLand.alpha = 1.0;
-        switchVideoImageLand.alpha = 1.0;
-        switchCameraImageLand.alpha = 1.0;
-        
-        [self.lView addSubview:cameraButtonLand];
-        [self.lView addSubview:startVideoLand];
-        [self.lView addSubview:bgImageForSwitchLand];
-        [self.lView addSubview:switchCameraImageLand];
-        [self.lView addSubview:switchVideoImageLand];
-        [self.lView addSubview:cameraToggleSwitchLand];
-        [self.lView addSubview:stopVideoLand];
-        
-        startVideoLand.alpha = 1.0;
-        stopVideoLand.alpha = 1.0;
-        
-        
-//        AVCaptureVideoPreviewLayer* previewLand = [[CameraEngine engine] getPreviewLayer];
-//        [previewLand removeFromSuperlayer];
-//        previewLand.frame = self.videoRecordingViewLand.bounds;
-//        
-//        [self.videoRecordingViewLand.layer addSublayer:previewLand];
-        
-        
+       
     }
     if(sender.tag == 2)
     {
@@ -838,26 +742,26 @@
         [recorder prepareToRecord];
         
         
-        videoTimeLand.alpha = 0.0;
-        textViewBgImageLand.alpha = 0.0;
-        saveTextLand.alpha = 0.0;
-        cancleTextLand.alpha = 0.0;
-        videoRecordingViewLand.alpha = 0.0;
-        noteTextViewLand.alpha = 0.0;
-        audioRecordViewLand.alpha = 1.0;
-        noteTextViewLand.alpha = 0.0;
-        cameraToggleSwitchLand.alpha = 0.0;
-        viewForRecordingLand.alpha = 0.0;
-        imageCaptureButtonLand.alpha = 0.0;
-        cameraButtonLand.alpha = 0.0;
-        startVideoLand.alpha = 0.0;
-        stopVideoLand.alpha = 0.0;
-        bgImageForSwitchLand.alpha = 0.0;
-        switchVideoImageLand.alpha = 0.0;
-        switchCameraImageLand.alpha = 0.0;
-        
-        [stopButtonLand setEnabled:NO];
-        [playButtonLand setEnabled:NO];
+//        videoTimeLand.alpha = 0.0;
+//        textViewBgImageLand.alpha = 0.0;
+//        saveTextLand.alpha = 0.0;
+//        cancleTextLand.alpha = 0.0;
+//        videoRecordingViewLand.alpha = 0.0;
+//        noteTextViewLand.alpha = 0.0;
+//        audioRecordViewLand.alpha = 1.0;
+//        noteTextViewLand.alpha = 0.0;
+//        cameraToggleSwitchLand.alpha = 0.0;
+//        viewForRecordingLand.alpha = 0.0;
+//        imageCaptureButtonLand.alpha = 0.0;
+//        cameraButtonLand.alpha = 0.0;
+//        startVideoLand.alpha = 0.0;
+//        stopVideoLand.alpha = 0.0;
+//        bgImageForSwitchLand.alpha = 0.0;
+//        switchVideoImageLand.alpha = 0.0;
+//        switchCameraImageLand.alpha = 0.0;
+//        
+//        [stopButtonLand setEnabled:NO];
+//        [playButtonLand setEnabled:NO];
       
     }
     if(sender.tag == 3)
@@ -890,30 +794,30 @@
         [recorder stop];
         [player stop];
 
-        [self.pView addSubview:noteTextView];
+        [self.view addSubview:noteTextView];
         noteTextView.text = @"";
         [noteTextView addSubview:placeHolderTitle];
 
         
-        videoTimeLand.alpha = 0.0;
-        textViewBgImageLand.alpha = 1.0;
-        videoRecordingViewLand.alpha = 0.0;
-        noteTextViewLand.alpha = 0.0;
-        cameraToggleSwitchLand.alpha = 0.0;
-        viewForRecordingLand.alpha = 0.0;
-        audioRecordViewLand.alpha = 0.0;
-        imageCaptureButtonLand.alpha = 0.0;
-        cameraButtonLand.alpha = 0.0;
-        startVideoLand.alpha = 0.0;
-        stopVideoLand.alpha = 0.0;
-        noteTextViewLand.alpha = 1.0;
-        saveTextLand.alpha = 1.0;
-        cancleTextLand.alpha = 1.0;
-        bgImageForSwitchLand.alpha = 0.0;
-        switchVideoImageLand.alpha = 0.0;
-        switchCameraImageLand.alpha = 0.0;
-        [self.lView addSubview:noteTextViewLand];
-        noteTextViewLand.text = @"";
+//        videoTimeLand.alpha = 0.0;
+//        textViewBgImageLand.alpha = 1.0;
+//        videoRecordingViewLand.alpha = 0.0;
+//        noteTextViewLand.alpha = 0.0;
+//        cameraToggleSwitchLand.alpha = 0.0;
+//        viewForRecordingLand.alpha = 0.0;
+//        audioRecordViewLand.alpha = 0.0;
+//        imageCaptureButtonLand.alpha = 0.0;
+//        cameraButtonLand.alpha = 0.0;
+//        startVideoLand.alpha = 0.0;
+//        stopVideoLand.alpha = 0.0;
+//        noteTextViewLand.alpha = 1.0;
+//        saveTextLand.alpha = 1.0;
+//        cancleTextLand.alpha = 1.0;
+//        bgImageForSwitchLand.alpha = 0.0;
+//        switchVideoImageLand.alpha = 0.0;
+//        switchCameraImageLand.alpha = 0.0;
+//        [self.lView addSubview:noteTextViewLand];
+//        noteTextViewLand.text = @"";
        //ashwini
         // [noteTextViewLand addSubview:placeHolderTitle];
     }
@@ -962,26 +866,26 @@
     deleteNoteIndex=0;
 
     cameraButton.alpha = 0.0;
-     cameraButtonLand.alpha = 0.0;
+  //   cameraButtonLand.alpha = 0.0;
 
     if(startVideo.tag == 0)
     {
         [startVideo setBackgroundImage:[UIImage imageNamed:@"btn.png"] forState:UIControlStateNormal];
-        [startVideoLand setBackgroundImage:[UIImage imageNamed:@"btn.png"] forState:UIControlStateNormal];
+     //   [startVideoLand setBackgroundImage:[UIImage imageNamed:@"btn.png"] forState:UIControlStateNormal];
         [[CameraEngine engine] startCapture];
         startVideo.tag =1;
     }
     else if(startVideo.tag==1)
     {
         [startVideo setBackgroundImage:[UIImage imageNamed:@"rec_btn.png"] forState:UIControlStateNormal];
-        [startVideoLand setBackgroundImage:[UIImage imageNamed:@"rec_btn.png"] forState:UIControlStateNormal];
+      //  [startVideoLand setBackgroundImage:[UIImage imageNamed:@"rec_btn.png"] forState:UIControlStateNormal];
         [[CameraEngine engine] pauseCapture];
         startVideo.tag=2;
     }
     else if(startVideo.tag ==2)
     {
         [startVideo setBackgroundImage:[UIImage imageNamed:@"btn.png"] forState:UIControlStateNormal];
-        [startVideoLand setBackgroundImage:[UIImage imageNamed:@"btn.png"] forState:UIControlStateNormal];
+      //  [startVideoLand setBackgroundImage:[UIImage imageNamed:@"btn.png"] forState:UIControlStateNormal];
         [[CameraEngine engine] resumeCapture];
         startVideo.tag=1;
     }
@@ -997,8 +901,8 @@
     startVideo.tag=0;
     cameraButton.alpha = 1.0;
     
-    [startVideoLand setBackgroundImage:[UIImage imageNamed:@"rec_btn.png"] forState:UIControlStateNormal];
-    cameraButtonLand.alpha = 1.0;
+  //  [startVideoLand setBackgroundImage:[UIImage imageNamed:@"rec_btn.png"] forState:UIControlStateNormal];
+  //  cameraButtonLand.alpha = 1.0;
 }
 
 
@@ -1030,8 +934,8 @@
     [stopButton setEnabled:YES];
     [playButton setEnabled:YES];
     
-    [stopButtonLand setEnabled:YES];
-    [playButtonLand setEnabled:NO];
+//    [stopButtonLand setEnabled:YES];
+//    [playButtonLand setEnabled:NO];
 }
 
 - (IBAction)playTapped:(id)sender {
@@ -1123,8 +1027,8 @@
     [playButton setEnabled:NO];
     
  
-    [stopButtonLand setEnabled:NO];
-    [playButtonLand setEnabled:NO];
+//    [stopButtonLand setEnabled:NO];
+//    [playButtonLand setEnabled:NO];
 
 }
 
@@ -1171,7 +1075,7 @@
             }
     
     //    }
-    if (cameraToggleSwitch.on || cameraToggleSwitchLand.on) {
+    if (cameraToggleSwitch.on) {
         cameraToggleSwitch.on = YES;
         
         switchVideoImage.image = [UIImage imageNamed:@"video_ic.png"];
@@ -1197,13 +1101,13 @@
         switchVideoImage.alpha = 1.0;
         switchCameraImage.alpha = 1.0;
         
-        [self.pView addSubview:cameraButton];
-        [self.pView addSubview:startVideo];
-        [self.pView addSubview:stopVideo];
-        [self.pView addSubview:bgImageForSwitch];
-        [self.pView addSubview:switchCameraImage];
-        [self.pView addSubview:switchVideoImage];
-        [self.pView addSubview:cameraToggleSwitch];
+        [self.view addSubview:cameraButton];
+        [self.view addSubview:startVideo];
+        [self.view addSubview:stopVideo];
+        [self.view addSubview:bgImageForSwitch];
+        [self.view addSubview:switchCameraImage];
+        [self.view addSubview:switchVideoImage];
+        [self.view addSubview:cameraToggleSwitch];
         
         startVideo.alpha = 1.0;
         stopVideo.alpha = 1.0;
@@ -1221,36 +1125,36 @@
         [self.videoRecordingView.layer addSublayer:preview];
         
         
-        cameraToggleSwitchLand.on = YES;
-        
-        switchVideoImageLand.image = [UIImage imageNamed:@"video_ic.png"];
-        switchCameraImageLand.image = [UIImage imageNamed:@"recimg.png"];
-        videoTimeLand.alpha = 1.0;
-        textViewBgImageLand.alpha = 0.0;
-        saveTextLand.alpha = 0.0;
-        cancleTextLand.alpha = 0.0;
-        noteTextViewLand.alpha = 0.0;
-        videoRecordingViewLand.alpha = 1.0;
-        viewForRecordingLand.alpha = 0.0;
-        noteTextViewLand.alpha = 0.0;
-        cameraToggleSwitchLand.alpha = 1.0;
-        audioRecordViewLand.alpha = 0.0;
-        imageCaptureButtonLand.alpha = 0.0;
-        cameraButtonLand.alpha = 1.0;
-        bgImageForSwitchLand.alpha = 1.0;
-        switchVideoImageLand.alpha = 1.0;
-        switchCameraImageLand.alpha = 1.0;
-        
-        [self.lView addSubview:cameraButtonLand];
-        [self.lView addSubview:startVideoLand];
-        [self.lView addSubview:stopVideoLand];
-        [self.lView addSubview:bgImageForSwitchLand];
-        [self.lView addSubview:switchCameraImageLand];
-        [self.lView addSubview:switchVideoImageLand];
-        [self.lView addSubview:cameraToggleSwitchLand];
-        
-        startVideoLand.alpha = 1.0;
-        stopVideoLand.alpha = 1.0;
+//        cameraToggleSwitchLand.on = YES;
+//        
+//        switchVideoImageLand.image = [UIImage imageNamed:@"video_ic.png"];
+//        switchCameraImageLand.image = [UIImage imageNamed:@"recimg.png"];
+//        videoTimeLand.alpha = 1.0;
+//        textViewBgImageLand.alpha = 0.0;
+//        saveTextLand.alpha = 0.0;
+//        cancleTextLand.alpha = 0.0;
+//        noteTextViewLand.alpha = 0.0;
+//        videoRecordingViewLand.alpha = 1.0;
+//        viewForRecordingLand.alpha = 0.0;
+//        noteTextViewLand.alpha = 0.0;
+//        cameraToggleSwitchLand.alpha = 1.0;
+//        audioRecordViewLand.alpha = 0.0;
+//        imageCaptureButtonLand.alpha = 0.0;
+//        cameraButtonLand.alpha = 1.0;
+//        bgImageForSwitchLand.alpha = 1.0;
+//        switchVideoImageLand.alpha = 1.0;
+//        switchCameraImageLand.alpha = 1.0;
+//        
+//        [self.lView addSubview:cameraButtonLand];
+//        [self.lView addSubview:startVideoLand];
+//        [self.lView addSubview:stopVideoLand];
+//        [self.lView addSubview:bgImageForSwitchLand];
+//        [self.lView addSubview:switchCameraImageLand];
+//        [self.lView addSubview:switchVideoImageLand];
+//        [self.lView addSubview:cameraToggleSwitchLand];
+//        
+//        startVideoLand.alpha = 1.0;
+//        stopVideoLand.alpha = 1.0;
       
         
 //        AVCaptureVideoPreviewLayer* previewLand = [[CameraEngine engine] getPreviewLayer];
@@ -1271,12 +1175,12 @@
        [audioButton setImage:[UIImage imageNamed:@"micic.png"] forState:UIControlStateNormal];
        [noteButton setImage:[UIImage imageNamed:@"noteic.png"] forState:UIControlStateNormal];
        [deleteButton setImage:[UIImage imageNamed:@"zone.png"] forState:UIControlStateNormal];
-       [self.pView addSubview:bgImageForSwitch];
-       [self.pView addSubview:switchCameraImage];
-       [self.pView addSubview:switchVideoImage];
-       [self.pView addSubview:cameraToggleSwitch];
-       [self.pView addSubview:imageCaptureButton];
-       [self.pView addSubview:cameraButton];
+       [self.view addSubview:bgImageForSwitch];
+       [self.view addSubview:switchCameraImage];
+       [self.view addSubview:switchVideoImage];
+       [self.view addSubview:cameraToggleSwitch];
+       [self.view addSubview:imageCaptureButton];
+       [self.view addSubview:cameraButton];
        
        videoTime.alpha = 0.0;
        textViewBgImage.alpha = 0.0;
@@ -1286,8 +1190,8 @@
        videoRecordingView.alpha = 0.0;
        imageCaptureButton.alpha = 1.0;
        cameraButton.alpha = 1.0;
-       [self.pView addSubview:imageCaptureButton];
-       [self.pView addSubview:cameraButton];
+       [self.view addSubview:imageCaptureButton];
+       [self.view addSubview:cameraButton];
        audioRecordView.alpha = 0.0;
        noteTextView.alpha = 0.0;
        cameraToggleSwitch.alpha = 1.0;
@@ -1312,36 +1216,36 @@
        [self.viewForRecording.layer addSublayer:preview];
        
        
-       cameraToggleSwitchLand.on = NO;
-       
-       switchVideoImageLand.image = [UIImage imageNamed:@"video_recic.png"];
-       switchCameraImageLand.image = [UIImage imageNamed:@"photoimg.png"];
-       [self.lView addSubview:bgImageForSwitchLand];
-       [self.lView addSubview:switchCameraImageLand];
-       [self.lView addSubview:switchVideoImageLand];
-       [self.lView addSubview:cameraToggleSwitchLand];
-       [self.lView addSubview:imageCaptureButtonLand];
-       [self.lView addSubview:cameraButtonLand];
-       
-        videoTimeLand.alpha = 0.0;
-       textViewBgImageLand.alpha = 0.0;
-       saveTextLand.alpha = 0.0;
-       cancleTextLand.alpha = 0.0;
-       noteTextViewLand.alpha = 0.0;
-       videoRecordingViewLand.alpha = 0.0;
-       imageCaptureButtonLand.alpha = 1.0;
-       cameraButtonLand.alpha = 1.0;
-       [self.lView addSubview:imageCaptureButtonLand];
-       [self.lView addSubview:cameraButtonLand];
-       audioRecordViewLand.alpha = 0.0;
-       noteTextViewLand.alpha = 0.0;
-       cameraToggleSwitchLand.alpha = 1.0;
-       viewForRecordingLand.alpha = 1.0;
-       startVideoLand.alpha = 0.0;
-       stopVideoLand.alpha = 0.0;
-       bgImageForSwitchLand.alpha = 1.0;
-       switchVideoImageLand.alpha = 1.0;
-       switchCameraImageLand.alpha = 1.0;
+//       cameraToggleSwitchLand.on = NO;
+//       
+//       switchVideoImageLand.image = [UIImage imageNamed:@"video_recic.png"];
+//       switchCameraImageLand.image = [UIImage imageNamed:@"photoimg.png"];
+//       [self.lView addSubview:bgImageForSwitchLand];
+//       [self.lView addSubview:switchCameraImageLand];
+//       [self.lView addSubview:switchVideoImageLand];
+//       [self.lView addSubview:cameraToggleSwitchLand];
+//       [self.lView addSubview:imageCaptureButtonLand];
+//       [self.lView addSubview:cameraButtonLand];
+//       
+//        videoTimeLand.alpha = 0.0;
+//       textViewBgImageLand.alpha = 0.0;
+//       saveTextLand.alpha = 0.0;
+//       cancleTextLand.alpha = 0.0;
+//       noteTextViewLand.alpha = 0.0;
+//       videoRecordingViewLand.alpha = 0.0;
+//       imageCaptureButtonLand.alpha = 1.0;
+//       cameraButtonLand.alpha = 1.0;
+//       [self.lView addSubview:imageCaptureButtonLand];
+//       [self.lView addSubview:cameraButtonLand];
+//       audioRecordViewLand.alpha = 0.0;
+//       noteTextViewLand.alpha = 0.0;
+//       cameraToggleSwitchLand.alpha = 1.0;
+//       viewForRecordingLand.alpha = 1.0;
+//       startVideoLand.alpha = 0.0;
+//       stopVideoLand.alpha = 0.0;
+//       bgImageForSwitchLand.alpha = 1.0;
+//       switchVideoImageLand.alpha = 1.0;
+//       switchCameraImageLand.alpha = 1.0;
 
        
 //       AVCaptureVideoPreviewLayer* previewLand = [[CameraEngine engine] getPreviewLayer];
@@ -1457,21 +1361,21 @@
 
 - (IBAction) toggleEnabledTextForSwitch1onSomeLabel: (UISwitch *) sender {
     deleteNoteIndex=0;
-    if (sender==cameraToggleSwitch ||sender ==cameraToggleSwitchLand) {
+    if (sender==cameraToggleSwitch) {
         
-        if (cameraToggleSwitch.on || cameraToggleSwitch.on)
+        if (cameraToggleSwitch.on)
         {
             
             NSLog(@"1");
             cameraToggleSwitch.tag = 1;
-             cameraToggleSwitchLand.tag = 1;
-            [self.pView addSubview:cameraButton];
-            [self.pView addSubview:startVideo];
-            [self.pView addSubview:bgImageForSwitch];
-            [self.pView addSubview:switchCameraImage];
-            [self.pView addSubview:switchVideoImage];
-            [self.pView addSubview:cameraToggleSwitch];
-            [self.pView addSubview:stopVideo];
+         //    cameraToggleSwitchLand.tag = 1;
+            [self.view addSubview:cameraButton];
+            [self.view addSubview:startVideo];
+            [self.view addSubview:bgImageForSwitch];
+            [self.view addSubview:switchCameraImage];
+            [self.view addSubview:switchVideoImage];
+            [self.view addSubview:cameraToggleSwitch];
+            [self.view addSubview:stopVideo];
 
             videoTime.alpha = 0.0;
             startVideo.alpha = 1.0;
@@ -1482,20 +1386,20 @@
             
             
             
-            [self.lView addSubview:cameraButtonLand];
-            [self.lView addSubview:startVideoLand];
-            [self.lView addSubview:bgImageForSwitchLand];
-            [self.lView addSubview:switchCameraImageLand];
-            [self.lView addSubview:switchVideoImageLand];
-            [self.lView addSubview:cameraToggleSwitchLand];
-            [self.lView addSubview:stopVideoLand];
-            
-            videoTimeLand.alpha = 0.0;
-            startVideoLand.alpha = 1.0;
-            stopVideoLand.alpha = 1.0;
-            imageCaptureButtonLand.alpha = 0.0;
-            switchVideoImageLand.image = [UIImage imageNamed:@"video_ic.png"];
-            switchCameraImageLand.image = [UIImage imageNamed:@"recimg.png"];
+//            [self.lView addSubview:cameraButtonLand];
+//            [self.lView addSubview:startVideoLand];
+//            [self.lView addSubview:bgImageForSwitchLand];
+//            [self.lView addSubview:switchCameraImageLand];
+//            [self.lView addSubview:switchVideoImageLand];
+//            [self.lView addSubview:cameraToggleSwitchLand];
+//            [self.lView addSubview:stopVideoLand];
+//            
+//            videoTimeLand.alpha = 0.0;
+//            startVideoLand.alpha = 1.0;
+//            stopVideoLand.alpha = 1.0;
+//            imageCaptureButtonLand.alpha = 0.0;
+//            switchVideoImageLand.image = [UIImage imageNamed:@"video_ic.png"];
+//            switchCameraImageLand.image = [UIImage imageNamed:@"recimg.png"];
 
 
         }
@@ -1505,11 +1409,11 @@
            // [setUserDefaults setInteger:0 forKey:@"cameraToggleSwitch"];
             NSLog(@"0");
             cameraToggleSwitch.tag = 0;
-            cameraToggleSwitchLand.tag = 0;
+           // cameraToggleSwitchLand.tag = 0;
         }
     }
     [cameraToggleSwitch addTarget:self action:@selector(cameraClicked:) forControlEvents:UIControlEventValueChanged];
-     [cameraToggleSwitchLand addTarget:self action:@selector(cameraClicked:) forControlEvents:UIControlEventValueChanged];
+    // [cameraToggleSwitchLand addTarget:self action:@selector(cameraClicked:) forControlEvents:UIControlEventValueChanged];
 }
 
 #pragma mark - TextView Methods
@@ -1556,19 +1460,10 @@
 - (IBAction)saveText:(id)sender
 {
     deleteNoteIndex=0;
-    if(noteTextView.hasText == YES||noteTextViewLand.hasText ==YES)
+    if(noteTextView.hasText == YES)
     {
-        UIInterfaceOrientation ori = [[UIApplication sharedApplication]statusBarOrientation];
-        if(ori == UIInterfaceOrientationLandscapeRight || ori ==UIInterfaceOrientationLandscapeLeft)
-        {
-            savedDescription = [[NSString alloc]initWithString:noteTextViewLand.text];
-        }
-        
-        else if(ori == UIInterfaceOrientationPortrait || ori==UIInterfaceOrientationPortraitUpsideDown)
-        {
-            savedDescription = [[NSString alloc]initWithString:noteTextView.text];
-        }
-        NSLog(@"savedDescription = %@",savedDescription);
+             savedDescription = [[NSString alloc]initWithString:noteTextView.text];
+         NSLog(@"savedDescription = %@",savedDescription);
         
         
   //     NSInteger lastRowId = sqlite3_last_insert_rowid(yourdatabasename);
@@ -1663,14 +1558,13 @@
     UIInterfaceOrientation ori = [[UIApplication sharedApplication]statusBarOrientation];
     if(ori == UIInterfaceOrientationLandscapeRight || ori ==UIInterfaceOrientationLandscapeLeft)
     {
-        self.view = self.lView;
-      
+        
         self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"main-bg-1024-704.jpg"]];
     }
     
     else if(ori == UIInterfaceOrientationPortrait ||ori ==UIInterfaceOrientationPortraitUpsideDown)
     {
-        self.view = self.pView;
+      
         self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"main-bg-768-960.jpg"]];
 
 
@@ -1679,12 +1573,12 @@
     NSUInteger check = [[NSUserDefaults standardUserDefaults] integerForKey:@"cameraToggleSwitch"];
     if (check==1) {
         [cameraToggleSwitch setOn:YES];
-         [cameraToggleSwitchLand setOn:YES];
+     //    [cameraToggleSwitchLand setOn:YES];
     }
     else
     {
         [cameraToggleSwitch setOn:NO];
-        [cameraToggleSwitchLand setOn:NO];
+      //  [cameraToggleSwitchLand setOn:NO];
     }
 
 //    cameraToggleSwitch.transform = CGAffineTransformMakeScale(2.0, 0.4);
@@ -1718,13 +1612,11 @@
     [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
     if(toInterfaceOrientation == UIInterfaceOrientationLandscapeRight || toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft)
     {
-        self.view = self.lView;
         self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"main-bg-1024-704.jpg"]];
     }
     
     else if(toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)
     {
-        self.view = self.pView;
         self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"main-bg-768-960.jpg"]];
 
     }

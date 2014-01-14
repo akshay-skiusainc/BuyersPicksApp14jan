@@ -30,6 +30,7 @@
 		FF02A144188003AF00348D86 /* TermsAndConditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FF02A140188003AF00348D86 /* TermsAndConditions.m */; };
 		FF02A145188003AF00348D86 /* TermsAndConditions.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF02A141188003AF00348D86 /* TermsAndConditions.xib */; };
 		FF02A1481880160100348D86 /* DataFwdClass.m in Sources */ = {isa = PBXBuildFile; fileRef = FF02A1471880160100348D86 /* DataFwdClass.m */; };
+		FF0480231885119800E1D403 /* edit.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FF0480221885119800E1D403 /* edit.jpg */; };
 		FF09CACE187C0CBD004F29DD /* regi_bg_v.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FF09CACC187C0CBD004F29DD /* regi_bg_v.jpg */; };
 		FF09CACF187C0CBD004F29DD /* login_bg_v.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FF09CACD187C0CBD004F29DD /* login_bg_v.jpg */; };
 		FF09CAD5187C1E0A004F29DD /* mic.png in Resources */ = {isa = PBXBuildFile; fileRef = FF09CAD0187C1E0A004F29DD /* mic.png */; };
@@ -285,6 +286,7 @@
 		FF02A141188003AF00348D86 /* TermsAndConditions.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TermsAndConditions.xib; sourceTree = "<group>"; };
 		FF02A1461880160100348D86 /* DataFwdClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataFwdClass.h; sourceTree = "<group>"; };
 		FF02A1471880160100348D86 /* DataFwdClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataFwdClass.m; sourceTree = "<group>"; };
+		FF0480221885119800E1D403 /* edit.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = edit.jpg; sourceTree = "<group>"; };
 		FF09CACC187C0CBD004F29DD /* regi_bg_v.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = regi_bg_v.jpg; sourceTree = "<group>"; };
 		FF09CACD187C0CBD004F29DD /* login_bg_v.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = login_bg_v.jpg; sourceTree = "<group>"; };
 		FF09CAD0187C1E0A004F29DD /* mic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mic.png; sourceTree = "<group>"; };
@@ -637,6 +639,7 @@
 		FF0A96E8185ADC040052FDC1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FF0480221885119800E1D403 /* edit.jpg */,
 				FF9BE44B18840B20007AFA74 /* 100_100.png */,
 				FF9BE44C18840B20007AFA74 /* 238_227.png */,
 				FFFB26CD187E7BDE00BE1906 /* profile 3 */,
@@ -1140,6 +1143,7 @@
 				FFFB26F1187EBDF900BE1906 /* plan_pricing.png in Resources */,
 				FF9BE44A1883B66C007AFA74 /* DatabaseClass.xib in Resources */,
 				FF09CB03187C3A45004F29DD /* reseton.png in Resources */,
+				FF0480231885119800E1D403 /* edit.jpg in Resources */,
 				FFE404441864097A00414F8A /* recording_icon.png in Resources */,
 				FF09CAF5187C3A45004F29DD /* arrow_off.png in Resources */,
 				FFECD606188115690093E775 /* CameraAudioVideoNote.xib in Resources */,

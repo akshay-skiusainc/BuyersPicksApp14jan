@@ -47,16 +47,21 @@
                         <color key="titleColor" red="0.025162049509999999" green="0.25921004050000002" blue="0.26080197700000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="offEditModeBtn:" destination="-1" eventType="touchUpInside" id="7sN-u0-rGy"/>
+                    </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="trz-op-lxh">
                     <rect key="frame" x="611" y="38" width="147" height="142"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.80472735969999998" green="0.80472735969999998" blue="0.80472735969999998" alpha="1" colorSpace="calibratedRGB"/>
                 </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="oIV-9m-sn3">
                     <rect key="frame" x="616" y="45" width="137" height="133"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="separatorColor" red="0.46687659440000001" green="0.46687659440000001" blue="0.46687659440000001" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="sectionIndexTrackingBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="I8w-jv-oaa">
@@ -71,10 +76,10 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dZv-4E-E9b">
-                    <rect key="frame" x="318" y="9" width="133" height="27"/>
+                    <rect key="frame" x="327" y="9" width="111" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                    <state key="normal" backgroundImage="allvender.jpg">
+                    <state key="normal" backgroundImage="edit.jpg">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -203,6 +208,9 @@
                         <color key="titleColor" red="0.025162049509999999" green="0.25921004050000002" blue="0.26080197700000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="offEditModeBtn:" destination="-1" eventType="touchUpInside" id="1ft-Ei-LWg"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="did-7F-OTW">
                     <rect key="frame" x="919" y="8" width="30" height="27"/>
@@ -249,12 +257,13 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="vJR-FU-A9x">
                     <rect key="frame" x="866" y="36" width="147" height="142"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.80472735969999998" green="0.80472735969999998" blue="0.80472735969999998" alpha="1" colorSpace="calibratedRGB"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4Ju-0l-soD">
-                    <rect key="frame" x="446" y="9" width="133" height="27"/>
+                    <rect key="frame" x="459" y="8" width="111" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                    <state key="normal" backgroundImage="allvender.jpg">
+                    <state key="normal" backgroundImage="edit.jpg">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -275,8 +284,9 @@
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3nm-zF-qvn">
                     <rect key="frame" x="871" y="43" width="137" height="133"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="separatorColor" red="0.46687659440000001" green="0.46687659440000001" blue="0.46687659440000001" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="sectionIndexTrackingBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
             </subviews>
@@ -285,10 +295,10 @@
         </view>
     </objects>
     <resources>
-        <image name="allvender.jpg" width="133" height="27"/>
         <image name="cancelEditing.png" width="102" height="36"/>
         <image name="delet.png" width="50" height="37"/>
         <image name="dropbox.png" width="47" height="37"/>
+        <image name="edit.jpg" width="111" height="29"/>
         <image name="list_view.jpg" width="30" height="27"/>
         <image name="share.png" width="55" height="37"/>
         <image name="small_thumb.jpg" width="36" height="27"/>

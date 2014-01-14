@@ -19,7 +19,7 @@
 @implementation AddNote
 @synthesize pView,titleTextField,nameTextField,descriptionTextField,selectIndustryLabel,industryTableView,tagTextView,websiteTextView,emailIdTextView,contactNoTextView,addressTextView,currentLocationTextView,noteArray,noteScroller,goToCamera;
 @synthesize mapView;
-@synthesize titleBgImage,selectIndusBgImage,websiteBgImage,addressBgImage,currntLocBgImage,contactBgImage,emailBgImage,titleLabel,nameLabel,descLabel,tagLabel,tagBgImage,websiteLabel,addressLabel,emailLabel,contactLabel,currentLocLabel,tagButton,addWebsiteBtn,addEmailBtn,addAddressbtn,addContactBtn,mainScroller,mainView,TAG,vendorDesciption,vendorTitle,vendorWebsite,vendorid;
+@synthesize titleBgImage,selectIndusBgImage,websiteBgImage,addressBgImage,currntLocBgImage,contactBgImage,emailBgImage,titleLabel,nameLabel,descLabel,tagLabel,tagBgImage,websiteLabel,addressLabel,emailLabel,contactLabel,currentLocLabel,tagButton,addWebsiteBtn,addEmailBtn,addAddressbtn,addContactBtn,mainScroller,mainView,TAG,vendorDesciption,vendorTitle,vendorWebsite,vendorid,vendorName;
 
 @synthesize WebsiteArray,EmailIDArray,AddressArray,ContactsArray;
 
@@ -35,7 +35,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    titleTextField.text=vendorTitle;
+    nameTextField.text = vendorTitle;
+    titleTextField.text=vendorName;
     descriptionTextField.text=vendorDesciption;
     websiteTextView.text=vendorWebsite;
     dataFwdObj=[DataFwdClass getInstance];
@@ -571,13 +572,23 @@
 
 -(void)done
 {
+    
+    NSDate *date = [NSDate date];
+   
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat:@"dd-MM-yyyy hh:mm"];
+  
+    
+    NSString *tempDate = [dateFormat stringFromDate:date];
+    
+    
     if (check==1) {
     }
     
     else{
         if(nameTextField.text.length >0)
         {
-            NSString   *insertquery = [NSString stringWithFormat:@"INSERT INTO ba_tbl_vendor ( vendor_name , user_id , tags , alias , description , website , path , created_date , security_pin , old_security_pin , last_modified_security_pin , geo_latitude , geo_longitude , last_modified_date , is_deleted , delete_date ) VALUES ( \"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")", titleTextField.text, @"1", tagTextView.text, @"", descriptionTextField.text, websiteTextView.text, @"path", @"created_date", @"securepin", @"oldpin", @"last_modified_security_pin",@"geolat",@"geolng", @"lastmodified" , @"YES",@"Deletedate"];
+            NSString *insertquery = [NSString stringWithFormat:@"INSERT INTO ba_tbl_vendor ( vendor_name , user_id , tags , alias , description , website , path , created_date , security_pin , old_security_pin , last_modified_security_pin , geo_latitude , geo_longitude , last_modified_date , is_deleted , delete_date, vendor_title ) VALUES ( \"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")", nameTextField.text, @"1", tagTextView.text, @"", descriptionTextField.text, websiteTextView.text, @"path", tempDate, @"securepin", @"oldpin", @"last_modified_security_pin",@"geolat",@"geolng", @"lastmodified" , @"YES",@"Deletedate", titleTextField.text];
             
             [self saveData:insertquery];
         }
@@ -802,9 +813,18 @@
 
 - (void)goToCamera:(id)sender
 {
+    NSDate *date = [NSDate date];
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat:@"dd-MM-yyyy hh:mm"];
+    
+    
+    NSString *tempDate = [dateFormat stringFromDate:date];
+    
+
     check=1;
     
-    NSString *insertquery = [NSString stringWithFormat:@"INSERT INTO ba_tbl_vendor ( vendor_name , user_id , tags , alias , description , website , path , created_date , security_pin , old_security_pin , last_modified_security_pin , geo_latitude , geo_longitude , last_modified_date , is_deleted , delete_date ) VALUES ( \"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")", titleTextField.text, @"1", tagTextView.text, @"", descriptionTextField.text, websiteTextView.text, @"path", @"created_date", @"securepin", @"oldpin", @"last_modified_security_pin",@"geolat",@"geolng", @"lastmodified" , @"YES",@"Deletedate"];
+    NSString *insertquery = [NSString stringWithFormat:@"INSERT INTO ba_tbl_vendor ( vendor_name , user_id , tags , alias , description , website , path , created_date , security_pin , old_security_pin , last_modified_security_pin , geo_latitude , geo_longitude , last_modified_date , is_deleted , delete_date, vendor_title ) VALUES ( \"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")", nameTextField.text, @"1", tagTextView.text, @"", descriptionTextField.text, websiteTextView.text, @"path", tempDate, @"securepin", @"oldpin", @"last_modified_security_pin",@"geolat",@"geolng", @"lastmodified" , @"YES",@"Deletedate", titleTextField.text];
     
     [self saveData:insertquery];
     CameraAudioVideoNote *goToCameraView = [[CameraAudioVideoNote alloc]initWithNibName:@"CameraAudioVideoNote" bundle:nil];

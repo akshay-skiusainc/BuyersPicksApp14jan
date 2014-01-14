@@ -23,10 +23,7 @@
     }
     return self;
 }
--(void)test
-{
-   // dsmlkjdwqljdqw;;jed
-}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
