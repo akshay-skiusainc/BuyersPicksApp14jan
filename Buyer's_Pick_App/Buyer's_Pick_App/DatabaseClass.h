@@ -51,8 +51,10 @@
 
     NSString			*datatype[1000];
 	NSString			*datapath[1000];
-    
-    
+    NSString			*datatitle[1000];
+
+    NSString			*datadate[1000];
+    int numberOfItems;
     NSString			*vendoridDB[1000];
     
     NSString			*vendornameDB[1000];
@@ -88,6 +90,7 @@
 
 
 }
+-(void)displayAllVendorsInDB:(NSString*)qSQL;
 
 -(void)displayContentData:(NSString*)qSQL;
 

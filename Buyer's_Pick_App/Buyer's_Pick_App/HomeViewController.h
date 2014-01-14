@@ -22,6 +22,8 @@
     UIImageView *lineImage[5000];
     UIView *viewForList[5000];
     UILabel *vendorName[5000];
+    UILabel *vendorTitle[5000];
+    UILabel *vendorDate[5000];
     UILabel *vendorDetails[5000];
     
     UIButton *vendorImageLand[5000];
@@ -30,6 +32,8 @@
     UIImageView *lineImageLand[5000];
     UIView *viewForListLand[5000];
     UILabel *vendorNameLand[5000];
+    UILabel *vendorTitleLand[5000];
+    UILabel *vendorDateLand[5000];
     UILabel *vendorDetailsLand[5000];
 
     UIImageView *imageOnVendorGrid[5000];
