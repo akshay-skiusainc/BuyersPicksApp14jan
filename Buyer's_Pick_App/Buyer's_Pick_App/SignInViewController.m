@@ -23,10 +23,7 @@
     }
     return self;
 }
--(void)test
-{
-   // dsmlkjdwqljdqw;;jed
-}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -196,7 +193,7 @@
             
             
             
-            if ([MobileNo isEqualToString:@"1"])
+            if ([MobileNo isEqualToString:@"0"])
             {
                 
                 [self ValidateLogin:post];
@@ -206,25 +203,10 @@
             else 
             {
 
-        [self DataPresentValidateLogin:post];
+                [self DataPresentValidateLogin:post];
+                
             }
         
-            NSString *insertSQL1 = [NSString stringWithFormat:@"select password from ba_tbl_user where id = 1"];
-            
-            [self displayAll:insertSQL1];
-            
-            
-            if ([MobileNo isEqualToString:passwordTextField.text]) {
-                [self.navigationController popToRootViewControllerAnimated:YES];
-                
-            }
-            
-            else
-            {
-                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Password Incorrect" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil ];
-                [alert show];
-                
-            }
             
             
         }
@@ -297,17 +279,39 @@
          
             NSString *insertSQL = [NSString stringWithFormat:@"update ba_tbl_user set active = %@ where id = 1",@"1"];
             [self saveData:insertSQL];
+                
+                NSString *insertSQL1 = [NSString stringWithFormat:@"select password from ba_tbl_user where id = 1"];
+                
+                [self displayAll:insertSQL1];
+                
+                
+                if ([MobileNo isEqualToString:passwordTextField.text]) {
+                    [self.navigationController popToRootViewControllerAnimated:YES];
+                    
+                }
+                
+                else
+                {
+                    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Password Incorrect" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil ];
+                    [alert show];
+                    
+                }
+
 
             }
             
             else
             {
                 NSLog(@"no entry");
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Please verify your account" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil ];
+                [alert show];
             }
 
     	}
             
         }
+    
+   
 }
 
 
@@ -383,6 +387,24 @@
 
     }
     
+    
+    NSString *insertSQL1 = [NSString stringWithFormat:@"select password from ba_tbl_user where id = 1"];
+    
+    [self displayAll:insertSQL1];
+    
+    
+    if ([MobileNo isEqualToString:passwordTextField.text]) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        
+    }
+    
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Password Incorrect" delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil ];
+        [alert show];
+        
+    }
+
 }
 
 

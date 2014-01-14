@@ -199,6 +199,8 @@
     {
         CameraAudioVideoNote *openCamera = [[CameraAudioVideoNote alloc]initWithNibName:@"CameraAudioVideoNote" bundle:nil];
         openCamera.navTagFromHome = sender.tag;
+        openCamera.VENDORID = vendorid;
+
         [self.navigationController pushViewController:openCamera animated:YES];
     }
 }

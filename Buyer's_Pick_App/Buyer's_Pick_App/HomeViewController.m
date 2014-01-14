@@ -477,6 +477,9 @@
         }
 
     }
+    
+    [deleteItems addObject:[NSString stringWithFormat:@"%@",dataid[gesture.view.tag]]];
+
 }
 -(void)tickmarkClicked:(UIButton *)sender
 {
@@ -485,6 +488,8 @@
 //    [self displaySelctedVendor:fetchdata];
     if([tickmarkButtonlist[sender.tag] backgroundImageForState:UIControlStateNormal] == [UIImage imageNamed:@" "]||[tickmarkButtonlistLand[sender.tag] backgroundImageForState:UIControlStateNormal] == [UIImage imageNamed:@" "])
     {
+        NSLog(@"add tickmarkClicked ");
+
         [deleteItems addObject:[NSString stringWithFormat:@"%@",dataid[sender.tag]]];
         
         [tickmarkButtonlist[sender.tag] setBackgroundImage:[UIImage imageNamed:@"100_100.png"] forState:UIControlStateNormal];
@@ -494,6 +499,8 @@
     }
     else //if([tickmarkButton[sender.tag] backgroundImageForState:UIControlStateNormal] == [UIImage imageNamed:@"check.png"]||[tickmarkButtonLand[sender.tag] backgroundImageForState:UIControlStateNormal] == [UIImage imageNamed:@"check.png"])
     {
+        NSLog(@"del tickmarkClicked ");
+
         [deleteItems removeObject:[NSString stringWithFormat:@"%@",dataid[sender.tag]]];
         
         [tickmarkButtonlist[sender.tag] setBackgroundImage:[UIImage imageNamed:@" "] forState:UIControlStateNormal];
@@ -534,7 +541,7 @@
     offEditModeBtn.alpha = 0.0;
     offEditModeBtnLand.alpha = 0.0;
        
-    NSString   *fetchdata = [NSString stringWithFormat:@"select id , vendor_name, Description, website  from ba_tbl_vendor WHERE id=%d",[sender tag]+1];
+    NSString   *fetchdata = [NSString stringWithFormat:@"select id , vendor_name, Description, website  from ba_tbl_vendor WHERE id=%@",dataid[[sender tag]]];
     [self displaySelctedVendor:fetchdata];
     
     
@@ -559,11 +566,14 @@
 {
     
         return 1;
-  }
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
    
         static NSString *CellIdentifier = @"sorting by date1";
+    
+    
         UITableViewCell *cell1 = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell1 == nil) {
             

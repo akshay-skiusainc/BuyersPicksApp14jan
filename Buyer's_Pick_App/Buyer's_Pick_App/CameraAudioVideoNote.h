@@ -40,6 +40,9 @@
 @property (nonatomic,strong)NSString* TAG;
 @property (nonatomic)int deleteNoteIndex;
 @property (nonatomic)int navTagFromHome;
+@property (nonatomic)NSString* VENDORID;
+
+
 @property (strong, nonatomic) IBOutlet UIView *pView;
 @property (strong, nonatomic) IBOutlet UIView *lView;
 @property (strong, nonatomic) IBOutlet UIScrollView *noteScroller;

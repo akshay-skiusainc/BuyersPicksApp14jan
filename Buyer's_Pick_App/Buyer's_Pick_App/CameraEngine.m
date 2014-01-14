@@ -41,7 +41,7 @@ static CameraEngine* theEngine;
 
 @synthesize isCapturing = _isCapturing;
 @synthesize isPaused = _isPaused;
-@synthesize cameraTag,stillImageOutput;
+@synthesize cameraTag,stillImageOutput,VENDORID;
 
 + (void) initialize
 {
@@ -89,6 +89,12 @@ static CameraEngine* theEngine;
 + (CameraEngine*) engine
 {
     return theEngine;
+}
+
+-(void)setVENDORID:(NSString *)_VENDORID
+{
+    VENDORID = _VENDORID;
+    NSLog(@"VENDORID = %@",VENDORID);
 }
 -(void)setCameraTag:(int)_cameraTag
 {
@@ -270,9 +276,9 @@ static CameraEngine* theEngine;
          
          
          [self DATABASECALLED];
-         NSString   *insertquery1 = [NSString stringWithFormat:@"SELECT * from  ba_tbl_vendor"];
-         [self displayAll:insertquery1];
-         NSString   *insertquery = [NSString stringWithFormat:@"INSERT INTO ba_tbl_content ( content_name , vendor_id , tags , title , content_size , description , website , created_date , update_date , is_deleted , delete_date, path,type) VALUES ( \"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")", @"vendor1", MobileNo ,@"photo1",@"picture",@"s",@"dsfsadsa",@"dfafaf",@"1",@"1",@"1",@"1",imagepath,@"image"];
+//         NSString   *insertquery1 = [NSString stringWithFormat:@"SELECT * from  ba_tbl_vendor"];
+//         [self displayAll:insertquery1];
+         NSString   *insertquery = [NSString stringWithFormat:@"INSERT INTO ba_tbl_content ( content_name , vendor_id , tags , title , content_size , description , website , created_date , update_date , is_deleted , delete_date, path,type) VALUES ( \"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")", @"vendor1", VENDORID ,@"photo1",@"picture",@"s",@"dsfsadsa",@"dfafaf",@"1",@"1",@"1",@"1",imagepath,@"image"];
          
          [self saveData:insertquery];
          
@@ -288,7 +294,7 @@ static CameraEngine* theEngine;
          */
          
 //         NSString   *fetchdata = [NSString stringWithFormat:@"select  id, path, type  from ba_tbl_content"];
-         NSString   *fetchdata = [NSString stringWithFormat:@"select id, path, type from ba_tbl_content where vendor_id=%@",MobileNo];
+         NSString   *fetchdata = [NSString stringWithFormat:@"select id, path, type from ba_tbl_content where vendor_id=%@",VENDORID];
 
          [self displayContentData:fetchdata];
          
@@ -373,9 +379,9 @@ static CameraEngine* theEngine;
                         
                         
                         [self DATABASECALLED];
-                        NSString   *insertquery1 = [NSString stringWithFormat:@"SELECT * from  ba_tbl_vendor"];
-                        [self displayAll:insertquery1];
-                        NSString   *insertquery = [NSString stringWithFormat:@"INSERT INTO ba_tbl_content ( content_name , vendor_id , tags , title , content_size , description , website , created_date , update_date , is_deleted , delete_date, path,type) VALUES ( \"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")", @"vendor1", MobileNo ,@"photo1",@"picture",@"s",@"dsfsadsa",@"dfafaf",@"1",@"1",@"1",@"1",imagepath,@"video"];
+//                        NSString   *insertquery1 = [NSString stringWithFormat:@"SELECT * from  ba_tbl_vendor"];
+//                        [self displayAll:insertquery1];
+                        NSString   *insertquery = [NSString stringWithFormat:@"INSERT INTO ba_tbl_content ( content_name , vendor_id , tags , title , content_size , description , website , created_date , update_date , is_deleted , delete_date, path,type) VALUES ( \"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")", @"vendor1", VENDORID ,@"photo1",@"picture",@"s",@"dsfsadsa",@"dfafaf",@"1",@"1",@"1",@"1",imagepath,@"video"];
                         
                         //         NSLog(@"")
                         [self saveData:insertquery];
@@ -391,7 +397,7 @@ static CameraEngine* theEngine;
                         [request startAsynchronous];
 */
                         
-                        NSString   *fetchdata = [NSString stringWithFormat:@"select id, path, type from ba_tbl_content where vendor_id=%@",MobileNo];
+                        NSString   *fetchdata = [NSString stringWithFormat:@"select id, path, type from ba_tbl_content where vendor_id=%@",VENDORID];
                         [self displayContentData:fetchdata];
                           [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
 

@@ -21,7 +21,7 @@
 @end
 
 @implementation CameraAudioVideoNote
-@synthesize lView,pView,noteScroller,savedImage,AllNotes,mainActivityIndicator,navTagFromHome,deleteNoteIndex,noteScrollerLand,TAG;
+@synthesize lView,pView,noteScroller,savedImage,AllNotes,mainActivityIndicator,navTagFromHome,deleteNoteIndex,noteScrollerLand,TAG,VENDORID;
 
 //camera
 @synthesize frontCamera,backCamera,cameraTag,cameraButton,device,imageArray,imageCaptureButton,viewForRecording,cameraToggleSwitch,input,thumbTintColor,bgImageForSwitch,switchCameraImage,switchVideoImage;
@@ -315,10 +315,10 @@
 //    Scroller=nil;
     
 //    NSString   *fetchdata = [NSString stringWithFormat:@"select id , path, type from ba_tbl_content"];
-    NSString   *insertquery1 = [NSString stringWithFormat:@"SELECT * from  ba_tbl_vendor"];
+    NSString   *insertquery1 = [NSString stringWithFormat:@"SELECT * from  ba_tbl_vendor where id =%@",VENDORID];
     [self displayAll:insertquery1];
     
-    NSString   *fetchdata = [NSString stringWithFormat:@"select id, path, type from ba_tbl_content where vendor_id=%@",MobileNo];
+    NSString   *fetchdata = [NSString stringWithFormat:@"select id, path, type from ba_tbl_content where vendor_id=%@",VENDORID];
 
     [self displayContentData:fetchdata];
     
@@ -960,6 +960,7 @@
 - (IBAction)startRecording:(id)sender
 {
     deleteNoteIndex=0;
+    [[CameraEngine engine] setVENDORID:VENDORID];
 
     cameraButton.alpha = 0.0;
      cameraButtonLand.alpha = 0.0;
@@ -1078,7 +1079,7 @@
     NSString   *insertquery1 = [NSString stringWithFormat:@"SELECT * from  ba_tbl_vendor"];
     [self displayAll:insertquery1];
     
-    NSString   *insertquery = [NSString stringWithFormat:@"INSERT INTO ba_tbl_content ( content_name , vendor_id , tags , title , content_size , description , website , created_date , update_date , is_deleted , delete_date, path,type) VALUES ( \"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")", @"vendor1", MobileNo,@"photo1",@"picture",@"s",@"dsfsadsa",@"dfafaf",@"1",@"1",@"1",@"1",imagepath,@"audio"];
+    NSString   *insertquery = [NSString stringWithFormat:@"INSERT INTO ba_tbl_content ( content_name , vendor_id , tags , title , content_size , description , website , created_date , update_date , is_deleted , delete_date, path,type) VALUES ( \"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")", @"vendor1", VENDORID,@"photo1",@"picture",@"s",@"dsfsadsa",@"dfafaf",@"1",@"1",@"1",@"1",imagepath,@"audio"];
     
     //         NSLog(@"")
     
@@ -1446,6 +1447,7 @@
 
 -(IBAction)captureNow {
     deleteNoteIndex=0;
+    [[CameraEngine engine] setVENDORID:VENDORID];
     [[CameraEngine engine] imageCapture];
 
 }
@@ -1572,10 +1574,10 @@
         
         
   //     NSInteger lastRowId = sqlite3_last_insert_rowid(yourdatabasename);
-        NSString   *insertquery1 = [NSString stringWithFormat:@"SELECT * from  ba_tbl_vendor"];
-        [self displayAll:insertquery1];
+//        NSString   *insertquery1 = [NSString stringWithFormat:@"SELECT * from  ba_tbl_vendor"];
+//        [self displayAll:insertquery1];
         
-        NSString   *insertquery = [NSString stringWithFormat:@"INSERT INTO ba_tbl_content ( content_name , vendor_id , tags , title , content_size , description , website , created_date , update_date , is_deleted , delete_date, path,type) VALUES ( \"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")", @"vendor1", MobileNo,@"photo1",@"picture",@"s",@"dsfsadsa",@"dfafaf",@"1",@"1",@"1",@"1",savedDescription,@"text"];
+        NSString   *insertquery = [NSString stringWithFormat:@"INSERT INTO ba_tbl_content ( content_name , vendor_id , tags , title , content_size , description , website , created_date , update_date , is_deleted , delete_date, path,type) VALUES ( \"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\",\"%@\")", @"vendor1", VENDORID,@"photo1",@"picture",@"s",@"dsfsadsa",@"dfafaf",@"1",@"1",@"1",@"1",savedDescription,@"text"];
         
         //         NSLog(@"")
         [self saveData:insertquery];

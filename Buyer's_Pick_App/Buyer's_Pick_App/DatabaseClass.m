@@ -289,6 +289,8 @@
 
 -(void)displayContentData:(NSString*)qSQL
 {
+    NSLog(@"displayContentData=%@",qSQL);
+
     const char *dbpath = [databasePath UTF8String];
 	sqlite3_stmt   *statement;
 	int i=0;
@@ -335,6 +337,8 @@
 
 -(void)displaySelctedVendor:(NSString*)qSQL
 {
+    NSLog(@"displaySelctedVendor=%@",qSQL);
+
     const char *dbpath = [databasePath UTF8String];
 	sqlite3_stmt   *statement;
 	int i=0;

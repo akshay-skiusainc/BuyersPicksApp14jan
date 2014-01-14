@@ -43,4 +43,5 @@
 @property (atomic, readwrite) BOOL isCapturing;
 @property (atomic, readwrite) BOOL isPaused;
 @property (nonatomic)int cameraTag;
+@property (nonatomic)NSString *VENDORID;
 @end
